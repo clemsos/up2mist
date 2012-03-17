@@ -1,6 +1,6 @@
 /*
-Theme Name: up2mist
-Layout: Sidebar-Content-Sidebar
+Theme Name: _s
+Layout: Content-Sidebar-Sidebar
 */
 
 .site-content {
@@ -8,7 +8,7 @@ Layout: Sidebar-Content-Sidebar
 	width: 100%;
 }
 #content {
-	margin: 0 20%;
+	margin: 0 40% 0 0;
 }
 #main .widget-area {
 	float: left;
@@ -16,7 +16,7 @@ Layout: Sidebar-Content-Sidebar
 	width: 20%;
 }
 #secondary { /* Sidebar 1 */
-	margin: 0 0 0 -100%;
+	margin: 0 0 0 -40%;
 }
 #tertiary { /* Sidebar 2 */
 	margin: 0 0 0 -20%;

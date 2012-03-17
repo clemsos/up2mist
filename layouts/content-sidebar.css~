@@ -1,23 +1,23 @@
 /*
-Theme Name: up2mist
-Layout: Sidebar-Content
+Theme Name: _s
+Layout: Content-Sidebar
 */
 
 .site-content {
-	float: right;
-	margin: 0 0 0 -25%;
+	float: left;
+	margin: 0 -25% 0 0;
 	width: 100%;
 }
 #content {
-	margin: 0 0 0 25%;
+	margin: 0 25% 0 0;
 }
 #secondary { /* Sidebar 1 */
-	float: left;
+	float: right;
 	overflow: hidden;
 	width: 25%;
 }
 #tertiary { /* Sidebar 2 */
-	clear: left;
+	clear: right;
 }
 .site-footer {
 	clear: both;
