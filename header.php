@@ -7,56 +7,67 @@
  * @package up2mist
  * @since up2mist 1.0
  */
-?><!DOCTYPE html>
-<html <?php language_attributes(); ?>>
-<head>
-<meta charset="<?php bloginfo( 'charset' ); ?>" />
-<meta name="viewport" content="width=device-width" />
-<title><?php
-	/*
-	 * Print the <title> tag based on what is being viewed.
-	 */
-	global $page, $paged;
+?>
+<!doctype html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!-- Consider adding a manifest.appcache: h5bp.com/d/Offline -->
+<!--[if gt IE 8]><!-->
+<html class="no-js" <?php language_attributes( );?>>
+	<!--<![endif]-->
+	<head>
+		<meta charset="<?php bloginfo( 'charset' );?>">
+		<meta name="viewport" content="width=device-width">
+		<title><?php
+		/*
+		 * Print the <title> tag based on what is being viewed.
+		 */
+		global $page, $paged;
 
-	wp_title( '|', true, 'right' );
+		wp_title( '|', true, 'right' );
 
-	// Add the blog name.
-	bloginfo( 'name' );
+		// Add the blog name.
+		bloginfo( 'name' );
 
-	// Add the blog description for the home/front page.
-	$site_description = get_bloginfo( 'description', 'display' );
-	if ( $site_description && ( is_home() || is_front_page() ) )
-		echo " | $site_description";
+		// Add the blog description for the home/front page.
+		$site_description = get_bloginfo( 'description', 'display' );
+		if ( $site_description && (is_home( ) || is_front_page( )) )
+			echo " | $site_description";
 
-	// Add a page number if necessary:
-	if ( $paged >= 2 || $page >= 2 )
-		echo ' | ' . sprintf( __( 'Page %s', 'up2mist' ), max( $paged, $page ) );
-
-	?></title>
-<link rel="profile" href="http://gmpg.org/xfn/11" />
-<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
-<!--[if lt IE 9]>
-<script src="<?php echo get_template_directory_uri(); ?>/js/html5.js" type="text/javascript"></script>
-<![endif]-->
-
-<?php wp_head(); ?>
-</head>
-
-<body <?php body_class(); ?>>
-<div id="page" class="hfeed site">
-	<?php do_action( 'before' ); ?>
-	<header id="masthead" class="site-header" role="banner">
-		<hgroup>
-			<h1 class="site-title"><a href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-			<h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>
-		</hgroup>
-
-		<nav role="navigation" class="site-navigation main-navigation">
-			<h1 class="assistive-text"><?php _e( 'Menu', 'up2mist' ); ?></h1>
-			<div class="assistive-text skip-link"><a href="#content" title="<?php esc_attr_e( 'Skip to content', 'up2mist' ); ?>"><?php _e( 'Skip to content', 'up2mist' ); ?></a></div>
-
-			<?php wp_nav_menu( array( 'theme_location' => 'primary' ) ); ?>
-		</nav>
-	</header><!-- #masthead .site-header -->
-
-	<div id="main">
+		// Add a page number if necessary:
+		if ( $paged >= 2 || $page >= 2 )
+			echo ' | ' . sprintf( __( 'Page %s', 'up2mist' ), max( $paged, $page ) );
+			?></title>
+		<link rel="profile" href="http://gmpg.org/xfn/11" >
+		<link rel="pingback" href="<?php bloginfo( 'pingback_url' );?>">
+		<?php up2mist_load_styleheets( );?>
+		<?php wp_head( );?>
+	</head>
+	<body <?php body_class( );?>>
+		<?php up2mist_before_page( );?>
+		<div id="page" class="container hfeed site">
+			<?php up2mist_before_header( );?>
+			<header id="masthead" class="site-header" role="banner">
+				<div class="<?php echo UP2MIST_NAVCLASS; ?>">
+					<div class="navbar-inner">
+						<div class="container">
+							<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a>
+							<a class="brand" href="<?php echo home_url( );?>/"> <?php bloginfo( 'name' );?></a>
+							<nav role="navigation" class="nav-collapse site-navigation main-navigation">
+								<?php wp_nav_menu( array(
+									'theme_location' => 'primary',
+									'container' => false,
+									'items_wrap' => '<ul id="%1$s" class="nav %2$s">%3$s</ul>',
+									'walker' => new Fabric_Nav_Walker()
+								) );
+								?>
+							</nav>
+						</div>
+					</div>
+				</div><!-- .navbar -->
+				<?php up2mist_inside_header( );?>
+			</header><!-- #masthead .site-header -->
+			<?php up2mist_before_main( );?>
+			<div id="main" class="row">

@@ -5,55 +5,77 @@
  */
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header">
-		<h1 class="entry-title"><?php the_title(); ?></h1>
-
-		<div class="entry-meta">
-			<?php up2mist_posted_on(); ?>
-		</div><!-- .entry-meta -->
-	</header><!-- .entry-header -->
-
-	<div class="entry-content">
-		<?php the_content(); ?>
-		<?php wp_link_pages( array( 'before' => '<div class="page-links">' . __( 'Pages:', 'up2mist' ), 'after' => '</div>' ) ); ?>
-	</div><!-- .entry-content -->
-
-	<footer class="entry-meta">
-		<?php
-			/* translators: used between list items, there is a space after the comma */
-			$category_list = get_the_category_list( __( ', ', 'up2mist' ) );
-
-			/* translators: used between list items, there is a space after the comma */
-			$tag_list = get_the_tag_list( '', ', ' );
-
-			if ( ! up2mist_categorized_blog() ) {
-				// This blog only has 1 category so we just need to worry about tags in the meta text
-				if ( '' != $tag_list ) {
-					$meta_text = __( 'This entry was tagged %2$s. Bookmark the <a href="%3$s" title="Permalink to %4$s" rel="bookmark">permalink</a>.', 'up2mist' );
-				} else {
-					$meta_text = __( 'Bookmark the <a href="%3$s" title="Permalink to %4$s" rel="bookmark">permalink</a>.', 'up2mist' );
-				}
-
-			} else {
-				// But this blog has loads of categories so we should probably display them here
-				if ( '' != $tag_list ) {
-					$meta_text = __( 'This entry was posted in %1$s and tagged %2$s. Bookmark the <a href="%3$s" title="Permalink to %4$s" rel="bookmark">permalink</a>.', 'up2mist' );
-				} else {
-					$meta_text = __( 'This entry was posted in %1$s. Bookmark the <a href="%3$s" title="Permalink to %4$s" rel="bookmark">permalink</a>.', 'up2mist' );
-				}
-
-			} // end check for categories on this blog
-
-			printf(
-				$meta_text,
-				$category_list,
-				$tag_list,
-				get_permalink(),
-				the_title_attribute( 'echo=0' )
-			);
-		?>
-
-		<?php edit_post_link( __( 'Edit', 'up2mist' ), '<span class="edit-link">', '</span>' ); ?>
-	</footer><!-- .entry-meta -->
-</article><!-- #post-<?php the_ID(); ?> -->
+			<article id="post-<?php the_ID( );?>" <?php post_class( );?>>
+				<?php up2mist_before_post( );?>
+				<header class="page-header entry-header">
+					<h1 class="entry-title"><?php the_title( );?></h1>
+					<div class="entry-meta clearfix">
+						<?php up2mist_posted_on( );?>
+					</div><!-- .entry-meta -->
+				</header><!-- .entry-header -->
+				<div class="entry-content clearfix">
+					<?php the_content( );?>
+					<?php wp_link_pages( array(
+							'before' => '<div class="page-links">' . __( 'Pages:', 'up2mist' ),
+							'after' => '</div>'
+						) );
+					?>
+				</div><!-- .entry-content -->
+				<footer class="entry-meta clearfix">
+					<?php
+					/* translators: used between list items, there is a space after the comma */
+					$category_list = get_the_category_list( __( ', ', 'up2mist' ) );
+					/* translators: used between list items, there is a space after the comma */
+					$tag_list = get_the_tag_list( '', ', ' );
+			
+					if ( '' != $category_list ) {
+						// This blog only has 1 category so we just need to worry about tags in the meta text
+						if ( '' != $tag_list ) {
+							$out = '<i class="icon-tag"></i>' . "\n";
+							;
+							$out .= $tag_list . "\n";
+							;
+							$out .= '<i class="icon-bookmark"></i>' . "\n";
+							;
+							$out .= '<a href="' . get_permalink( ) . '" title="Permalink to ' . the_title_attribute( 'echo=0' ) . '" rel="bookmark">permalink</a>' . "\n";
+							;
+						} else {
+							$out = '<i class="icon-bookmark"></i>' . "\n";
+							;
+							$out .= '<a href="' . get_permalink( ) . '" title="Permalink to ' . the_title_attribute( 'echo=0' ) . '" rel="bookmark">permalink</a>' . "\n";
+							;
+						}
+			
+					} else {
+						// But this blog has loads of categories so we should probably display them here
+						if ( '' != $tag_list ) {
+							$out = '<i class="icon-flag"></i>' . "\n";
+							;
+							$out .= $category_list . "\n";
+							;
+							$out .= '<i class="icon-tags"></i>' . "\n";
+							;
+							$out .= $tag_list . "\n";
+							;
+							$out .= '<i class="icon-bookmark"></i>' . "\n";
+							;
+							$out .= '<a href="' . get_permalink( ) . '" title="Permalink to ' . the_title_attribute( 'echo=0' ) . '" rel="bookmark">permalink</a>' . "\n";
+							;
+						} else {
+							$out = '<i class="icon-flag"></i>' . "\n";
+							;
+							$out .= $category_list . "\n";
+							;
+							$out .= '<i class="icon-bookmark"></i>' . "\n";
+							;
+							$out .= '<a href="' . get_permalink( ) . '" title="Permalink to ' . the_title_attribute( 'echo=0' ) . '" rel="bookmark">permalink</a>' . "\n";
+							;
+						}
+					}// end check for categories on this blog
+					echo $out;
+			
+					if ( get_edit_post_link( ) )
+						echo '<a href="' . get_edit_post_link( ) . '" class="btn pull-right edit-link">' . '<i class="icon-pencil"></i>' . __( 'Edit', 'up2mist' ) . '</a>';
+					?>
+				</footer><!-- .entry-meta -->
+			</article><!-- #post-<?php the_ID(); ?> -->
