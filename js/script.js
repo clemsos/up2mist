@@ -1,7 +1,7 @@
 jQuery( document ).ready( function( $ ) {
-
-	$('.carousel').carousel('pause');
-	//console.log('loaded')
-
+	console.log('script.js loaded')
 	
+	$('#featured').carousel('pause');
+	$('#tools').carousel( 'pause' );
+
 })// edn window load

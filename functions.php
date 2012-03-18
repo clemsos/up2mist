@@ -110,4 +110,11 @@ function up2mist_widgets_init() {
 }
 
 add_action( 'widgets_init', 'up2mist_widgets_init' );
+
+/* change excerpt length */
+function custom_excerpt_length( $length ) {
+	return 20;
+}
+add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
+
 ?>

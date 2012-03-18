@@ -13,7 +13,7 @@ get_header( );
 	<div id="primary" class="<?php echo UP2MIST_PRIMARY;?> site-content">
 		<div id="content" role="main">
 		
-		<section id="featured" class="carousel slide">
+		<section id="featured" class="carousel">
 		<div class="carousel-inner">
 		
 		<?php
@@ -25,7 +25,7 @@ get_header( );
 		<?php /* Start the Loop */?>
 		<?php while ( have_posts() ) : the_post();
 		?>
-		<article class="item <?php if($i==0) echo 'active'?> hero-unit">
+		<article class="item <?php if($i==0) echo 'active'?> hero-unit slide">
 			<div class="row">
 			<?php 
 			if(get_the_post_thumbnail()) {
@@ -33,7 +33,7 @@ get_header( );
 				<div class='span3'>" 
 				. get_the_post_thumbnail() .
 				"</div>
-				<div class='span3'>";
+				<div class='span4'>";
 			} else {
 				echo "<div class='span6'>";
 			} ?>
@@ -56,10 +56,25 @@ get_header( );
 		</section>
 		
 		
-		<section class='row tools'>
-		<?php 
-		query_posts('post_type=tool&order=DESC&orderby=date');
+		<section id="tools" class="carousel">
+		<div class="carousel-inner">
+		<?php
+		$j =0;
+		query_posts('post_type=tool&order=DESC&orderby=date&posts_per_page=12');
+		
 		if ( have_posts() ) while ( have_posts() ) : the_post(); 
+		?>
+		
+		<?php 
+		// add carousel item every 4 
+		$close = 0;
+		if($j==0)  {
+			echo '<div class="item active row slide">';
+		} elseif ($j == 4 || $j == 8 || $j == 12 ) {
+			echo '</div>';
+			echo '<div class="item row slide">';
+			$close =1;
+		}
 		?>
 		<article class="span2">
 			<div class='thumbnail'>
@@ -76,8 +91,14 @@ get_header( );
 			
 			
 		</article>
+		<?php $j++ ?>
 		<?php endwhile; wp_reset_postdata(); ?>
 		<?php endif; ?>
+		</div><!-- close final div -->
+		</div><!-- Inner Carousel -->
+		<!-- Carousel nav -->
+		<a class="carousel-control left" href="#tools" data-slide="prev">&lsaquo;</a>
+		<a class="carousel-control right" href="#tools" data-slide="next">&rsaquo;</a>
 		</section>
 		
 		<section class="posts">
