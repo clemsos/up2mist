@@ -62,7 +62,7 @@ function up2mist_setup() {
 /* Load stylesheets */
 function up2mist_load_styleheets() {
 
-	$html = "\t" . '<link rel="stylesheet" href="' . UP2MIST_URI . '/css/bootstrap.min.css' . '">' . "\n";
+	$html = "\t" . '<link rel="stylesheet" href="' . UP2MIST_URI . '/css/bootstrap.css' . '">' . "\n";
 
 	if ( UP2MIST_RESPONSIVE ) {
 		$html .= "\t" . '<link rel="stylesheet" href="' . UP2MIST_URI . '/css/bootstrap-responsive.min.css' . '">' . "\n";
