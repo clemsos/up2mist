@@ -17,8 +17,24 @@ get_header( );
 		<div class="carousel-inner">
 		
 		<?php
+		
 		$i =0;
-		query_posts('post_type=post&order=DESC&orderby=date&posts_per_page=3');
+		$args = array(
+			'post_type'=>'post',
+			'order'=>'DESC',
+			'orderby'=>'date',
+			'posts_per_page'=>3,
+			'meta_query' => array(
+						array(
+						    'key' => 'featured',
+						    'value' => '1',
+						    'compare' => 'LIKE'
+						)
+					)
+		);
+		
+		 query_posts($args);
+		
 		if ( have_posts() ) :
 		?>
 
@@ -60,7 +76,14 @@ get_header( );
 		<div class="carousel-inner">
 		<?php
 		$j =0;
-		query_posts('post_type=tool&order=DESC&orderby=date&posts_per_page=12');
+		
+		$args = array(
+			'post_type'=>'tool',
+			'order'=>'DESC',
+			'orderby'=>'date',
+			'posts_per_page'=>12
+		);
+		query_posts($args);
 		
 		if ( have_posts() ) while ( have_posts() ) : the_post(); 
 		?>
