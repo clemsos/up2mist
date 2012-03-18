@@ -13,7 +13,7 @@ get_header( );
 	<div id="primary" class="<?php echo UP2MIST_PRIMARY;?> site-content">
 		<div id="content" role="main">
 		
-		<section id="featured" class="carousel">
+		<section id="featured" class="carousel slide">
 		<div class="carousel-inner">
 		
 		<?php
