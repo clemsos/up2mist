@@ -82,9 +82,16 @@ function up2mist_enqueue_scripts() {
 	wp_enqueue_script( 'modernizr', UP2MIST_URI . '/js/modernizr.custom-2.5.3.min.js', false, '2.5.3' );
 	wp_enqueue_script( 'bootstrap', UP2MIST_URI . '/js/bootstrap.min.js', array( 'jquery' ), '2.0.2' );
 
+
+	// add custom script
+	wp_enqueue_script( 'script', UP2MIST_URI . '/js/script.js' );
+
+
 	if ( is_singular( ) && comments_open( ) && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
+	
+
 
 }
 
