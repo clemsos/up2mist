@@ -18,7 +18,7 @@ get_header( );
 		
 		$args = array(
 			'post_type'=>'report',
-			'order'=>'ASC',
+			'order'=>'DESC',
 			'orderby'=>'date',
 			'posts_per_page'=>1
 		);

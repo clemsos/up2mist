@@ -71,6 +71,9 @@ padding:30px
 height:265px
 }
 
+#latest-report .btn-group {
+float:right
+}
 /* =Content
  ----------------------------------------------- */
 
