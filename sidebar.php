@@ -14,32 +14,64 @@
 				
 				<section id="main-sidebar" class="well">
 					
+					
+					
 					<aside class="branding-sidebar">
 					<a class="brand" href="<?php echo home_url( );?>/"> <?php bloginfo( 'name' );?></a>
 					<div></div>
 
 					</aside>
-					<aside id="search" class="widget widget_search">
-						<?php get_search_form( ); ?>
-					</aside>
+					
+					
+					<div class="tabbable">
+					
+					<ul class="nav nav-tabs">
+					  <li class="active"><a href="#sidebar-menu" data-toggle="tab">Menu</a></li>
+					  <li class=""><a href="#search" data-toggle="tab">Search</a></li>
+					  <li class=""><a href="#sns" data-toggle="tab">SNS</a></li>
+					  <li class=""><a href="#widget" data-toggle="tab">Widgets</a></li>
+					</ul>
+					
+					
+					<div class="tab-content">
+					
+						<aside id="search" class="tab-pane widget widget_search">
+							<?php get_search_form( ); ?>
+						</aside>
 				
-					<?php wp_nav_menu( 
-						array(
-						'theme_location' => 'sidebar-menu',
-						'container' => false,
-						'items_wrap' => '
-							<aside class="%2$s">
-								<ul id="%1$s" class="nav nav-list">
-								%3$s
-								</ul>
-							</aside>',
-						'walker' => new Fabric_Nav_Walker()
-						) 
-					);
-					?>
-				<?php if ( ! dynamic_sidebar( 'sidebar-top' ) ) :
-				?>
-				<?php endif; // end sidebar top?>
+						<?php wp_nav_menu( 
+							array(
+							'theme_location' => 'sidebar-menu',
+							'container' => false,
+							'items_wrap' => '
+								<aside id="sidebar-menu" class="active tab-pane %2$s">
+									<ul class="nav nav-list">
+									%3$s
+									</ul>
+								</aside>',
+							'walker' => new Fabric_Nav_Walker()
+							) 
+						);
+						?>
+					
+						<div id="sns" class="tab-pane">
+						<?php if ( ! dynamic_sidebar( 'sns-top' ) ) :?>
+							<?php if ( current_user_can( 'edit_posts' ) ) :?>
+							<?php printf( __( 'Please select some widgets for "SNS Top" <a href="%1$s">Get started here</a>.', 'up2mist' ), admin_url( 'widgets.php' ) );?>
+							<?php endif; // end sidebar top?>
+						<?php endif; // end sidebar top?>
+						</div>
+						
+						<div id="widget" class="tab-pane">
+						<?php if ( ! dynamic_sidebar( 'sidebar-top' ) ) :?>
+							<?php if ( current_user_can( 'edit_posts' ) ) :?>
+							<?php printf( __( 'Please select some widgets for "SIDEBAR Top" <a href="%1$s">Get started here</a>.', 'up2mist' ), admin_url( 'widgets.php' ) );?>
+							<?php endif; // end sidebar top?>
+						<?php endif; // end sidebar top?>
+						</div>
+					</div><!-- end tab-content -->
+					</div><!-- end tabbable -->
+				
 				</section>
 				
 				

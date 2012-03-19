@@ -106,6 +106,17 @@ add_action( 'wp_enqueue_scripts', 'up2mist_enqueue_scripts' );
 function up2mist_widgets_init() {
 
 	register_sidebar( array(
+		'name' => __( 'SNS Top', 'up2mist' ),
+		'id' => 'sns-top',
+		'before_widget' => '	<aside id="%1$s" class="widget %2$s">
+					<ul class="nav nav-list">',
+		'after_widget' => "	</ul>
+					</aside>",
+		'before_title' => '<li class="nav-header">',
+		'after_title' => '</li></ul>'
+	) );
+
+	register_sidebar( array(
 		'name' => __( 'Sidebar Top', 'up2mist' ),
 		'id' => 'sidebar-top',
 		'before_widget' => '	<aside id="%1$s" class="widget %2$s">
@@ -126,7 +137,8 @@ function up2mist_widgets_init() {
 		'before_title' => '<li class="nav-header">',
 		'after_title' => '</li><li class="divider"></li></ul>'
 	) );
-	
+
+
 
 
 }
