@@ -15,6 +15,12 @@
 						<?php up2mist_posted_on( );?>
 					</div><!-- .entry-meta -->
 					<?php endif;?>
+					<?php if ( 'report' == get_post_type() ) :
+					?>
+					<div class="entry-meta clearfix">
+						<?php up2mist_posted_on( );?>
+					</div><!-- .entry-meta -->
+					<?php endif;?>
 				</header><!-- .entry-header -->
 				<?php if ( is_search() ) : // Only display Excerpts for Search
 				?>
