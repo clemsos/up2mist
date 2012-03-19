@@ -22,7 +22,12 @@
  padding: 0 0 15px 0
  }
  
-
+#colophon .box{
+height:250px;
+}
+#colophon {
+padding-top:30px
+}
 
 /* =Global
  ----------------------------------------------- */
