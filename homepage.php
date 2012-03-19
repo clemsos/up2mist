@@ -125,8 +125,22 @@ get_header( );
 		</section>
 		
 		<section class="posts">
-		<?php 
-		query_posts('post_type=post&order=DESC&orderby=date&posts_per_page=4');
+		<?php
+		$args = array(
+			'post_type'=>'post',
+			'order'=>'DESC',
+			'orderby'=>'date',
+			'posts_per_page'=>5,
+			'meta_query' => array(
+						array(
+						    'key' => 'featured',
+						    'value' => '0',
+						    'compare' => 'LIKE'
+						)
+					)
+		);
+		
+		query_posts($args);
 		if ( have_posts() ) while ( have_posts() ) : the_post(); 
 		?>
 
