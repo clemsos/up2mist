@@ -30,18 +30,18 @@ get_header( );
 		
 	
 
-	<article class="<?php if ($i == 0)  echo 'hero-unit'?>" >
+	<article class="report <?php if ($i == 0)  echo 'report-lead hero-unit'?>" >
 		<header class="page-header entry-header">
 			<h1><?php the_title( );?></h1>
 		</header><!-- .entry-header -->
 		   <?php the_excerpt() ?>
-		<footer>
-		<div class="btn-group">
-		<a href="<?php the_permalink(); ?>" class="btn btn-primary btn-large">Read</a>
+		<footer class="row">
+		<div class="btn-group span2">
+		<a href="<?php the_permalink(); ?>" class="btn btn-primary <?php if ($i == 0)  echo 'btn-large'?>">Read</a>
 		
 		<?php if ( get_custom_field('reportpdf')): ?>
-			<a href="<?php echo get_custom_field('reportpdf') ?>" class="btn btn-success btn-large">Download</a>
-		<?php endif; // end count?>
+			<a href="<?php echo get_custom_field('reportpdf') ?>" class="btn btn-success <?php if ($i == 0)  echo 'btn-large'?>">Download</a>
+		<?php endif; // end if download button?>
 		</div>
 		</footer>
 

@@ -88,6 +88,11 @@ height:265px
 }
 .page-links {
 }
+
+.report-lead footer{
+	float:right;
+	clear:both
+}
 /* =Asides
  ----------------------------------------------- */
 

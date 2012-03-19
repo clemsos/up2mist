@@ -13,11 +13,46 @@ get_header( );
 	<div id="primary" class="<?php echo UP2MIST_PRIMARY;?> site-content">
 		<div id="content" role="main">
 		
-		<section id="featured" class="carousel">
-		<div class="carousel-inner">
+		<?php
+		// display latest report
+		
+		$args = array(
+			'post_type'=>'report',
+			'order'=>'ASC',
+			'orderby'=>'date',
+			'posts_per_page'=>1
+		);
+		query_posts($args);
+		
+		if ( have_posts() ) : 
+		?>
+		<section id="latest-report" class="alert alert-block">
+		<a class="close" data-dismiss="alert">×</a>
+		<?php while ( have_posts() ) : the_post(); 
+		?>
+		<article class="row">
+			<div class="span5">
+			
+			<h3> 
+				<strong>Read our last report : </strong>
+				<a href="<?php the_permalink() ?>"><small><?php the_title()?> </small></a>
+			</h3>
+			</div>
+			<div class="btn-group span2">
+			<a href="<?php the_permalink(); ?>" class="btn btn-primary">Read</a>
+		
+		<?php if ( get_custom_field('reportpdf')): ?>
+		<a href="<?php echo get_custom_field('reportpdf') ?>" class="btn btn-success">Download</a>
+		<?php endif; ?>
+			</div>
+		</article>
+		<?php endwhile; wp_reset_postdata(); ?>
+		</section>
+		<?php endif; ?>
+		
 		
 		<?php
-		
+		// featured post carousel
 		$i =0;
 		$args = array(
 			'post_type'=>'post',
@@ -37,7 +72,9 @@ get_header( );
 		
 		if ( have_posts() ) :
 		?>
-
+		<section id="featured" class="carousel">
+		<div class="carousel-inner">
+		
 		<?php /* Start the Loop */?>
 		<?php while ( have_posts() ) : the_post();
 		?>
@@ -51,9 +88,9 @@ get_header( );
 				"</div>
 				<div class='span4'>";
 			} else {
-				echo "<div class='span6'>";
+				echo "<div class='span7'>";
 			} ?>
-				<h2><?php the_title() ?></h2>
+				<h2><a href="<?php the_permalink() ; ?>"><?php the_title() ?></a></h2>
 				<p><?php the_excerpt() ?></p>
 				<p>
 				<a href="<?php the_permalink() ?>" class="btn btn-info btn-large">
@@ -70,11 +107,11 @@ get_header( );
 		  <a class="carousel-control left" href="#featured" data-slide="prev">&lsaquo;</a>
 		  <a class="carousel-control right" href="#featured" data-slide="next">&rsaquo;</a>
 		</section>
-		
-		
-		<section id="tools" class="carousel">
-		<div class="carousel-inner">
+		<?php endif; ?>
+
+
 		<?php
+		// tools slideshow 
 		$j =0;
 		
 		$args = array(
@@ -85,7 +122,13 @@ get_header( );
 		);
 		query_posts($args);
 		
-		if ( have_posts() ) while ( have_posts() ) : the_post(); 
+		if ( have_posts() ) : ?>
+		
+		<section id="tools" class="carousel">
+		<div class="carousel-inner">
+		
+		
+		<?php while ( have_posts() ) : the_post(); 
 		?>
 		
 		<?php 
