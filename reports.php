@@ -21,18 +21,33 @@ get_header( );
 			'posts_per_page'=>12
 		);
 	query_posts($args);
-	 
+	$i =0;
+	
 	if ( have_posts() ) :
 	while ( have_posts() ) : the_post(); 
 	?>
 	
+		
 	
-	<article>
-		<?php
-		get_template_part( 'content', get_post_format( ) );
-		?>
-	</article>
 
+	<article class="<?php if ($i == 0)  echo 'hero-unit'?>" >
+		<header class="page-header entry-header">
+			<h1><?php the_title( );?></h1>
+		</header><!-- .entry-header -->
+		   <?php the_excerpt() ?>
+		<footer>
+		<div class="btn-group">
+		<a href="<?php the_permalink(); ?>" class="btn btn-primary btn-large">Read</a>
+		
+		<?php if ( get_custom_field('reportpdf')): ?>
+			<a href="<?php echo get_custom_field('reportpdf') ?>" class="btn btn-success btn-large">Download</a>
+		<?php endif; // end count?>
+		</div>
+		</footer>
+
+	</article>
+	
+	<?php $i++ ?>
 	<?php endwhile;?>
 
 	<?php up2mist_content_nav( );?>

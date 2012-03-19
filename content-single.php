@@ -14,7 +14,26 @@
 					</div><!-- .entry-meta -->
 				</header><!-- .entry-header -->
 				<div class="entry-content clearfix">
+					
+			<?php if ( 'report' == get_post_type() && get_custom_field('reportpdf')) :
+					 
+					?>
+					<div class=""> 
+						<div class="hero-unit">
+						  <h2>Get the full report here</h2>
+						   <?php the_excerpt() ?>
+						    <a href="<?php echo get_custom_field('reportpdf') ?>" class="btn btn-success btn-large">
+						      Download
+						    </a>
+						  </p>
+						</div>
+					</div><!-- .entry-meta -->
+					<?php endif;?>
+					
 					<?php the_content( );?>
+					
+					
+					
 					<?php wp_link_pages( array(
 							'before' => '<div class="page-links">' . __( 'Pages:', 'up2mist' ),
 							'after' => '</div>'
