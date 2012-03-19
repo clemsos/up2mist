@@ -4,7 +4,6 @@
  * @since up2mist 1.0
  */
 ?>
-
 			<article id="post-<?php the_ID( );?>" <?php post_class( );?>>
 				<?php up2mist_before_post( );?>
 				<header class="page-header entry-header">
@@ -17,7 +16,13 @@
 					<?php endif;?>
 					
 				</header><!-- .entry-header -->
-				<?php if ( is_search() || is_home()) : // Only display Excerpts for Search
+				<?php if ( is_search() ) : // Only display Excerpts for Search
+				?>
+
+				<div class="entry-summary">
+					<?php the_excerpt( );?>
+				</div><!-- .entry-summary -->
+				<?php elseif ( is_front_page( ) ) : // Only display Excerpts for Search
 				?>
 				<div class="entry-summary">
 					<?php the_excerpt( );?>
@@ -35,9 +40,10 @@
 					    </a>
 					  </p>
 					</div>
-				<?php endif;?>
+				<?php endif; // end reportpdf?>
 				
-				<?php else :?>
+				<?php else :
+				?>
 				<div class="entry-content clearfix">
 					<?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'up2mist' ) );?>
 					<?php wp_link_pages( array(

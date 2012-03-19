@@ -1,9 +1,9 @@
 /*
- Theme Name: up2mist
- Theme URI: http://binaryhideout.com
- Author: binhdo
- Author URI: http://binaryhideout.com
- Description: A customisable WordPress theme.
+ Theme Name: Up2mist
+ Theme URI: http://www.up2mist.org
+ Author: Clément Renaud
+ Author URI: http://www.clemsos.com
+ Description: A customisable WordPress theme based on Thematic 
  Version: 1.0
  License: GNU General Public License
  License URI: license.txt
@@ -11,8 +11,18 @@
 
  */
 
-/* =Reset
+/* =Layout
  -------------------------------------------------------------- */
+ #masthead .navbar{
+ display:none;
+ 
+ }
+ 
+ #masthead {
+ padding: 0 0 15px 0
+ }
+ 
+
 
 /* =Global
  ----------------------------------------------- */
@@ -62,6 +72,26 @@ a:hover, a:focus, a:active {
 .main-small-navigation .menu {
 }
 
+
+/* sidebar */
+
+#sidebar {
+font-size:0.8em;
+}
+#secondary li{
+line-height:2em
+}
+
+.branding-sidebar {
+text-align: center;
+font-size: 18pt;
+padding: 0 0 30px 0;
+}
+
+.branding-sidebar div{
+height: 20px;
+border-bottom: 1px solid #CCC;
+}
 /* =Homepage
  ----------------------------------------------- */
 .home .hero-unit {

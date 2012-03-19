@@ -45,7 +45,12 @@ function up2mist_setup() {
 	add_theme_support( 'post-thumbnails' );
 
 	/* This theme uses wp_nav_menu() in one location. */
-	register_nav_menus( array( 'primary' => __( 'Primary Menu', 'up2mist' ), ) );
+	register_nav_menus( 
+			array( 
+			'primary' => __( 'Primary Menu', 'up2mist' ), 
+			'sidebar-menu' => __( 'Sidebar Menu', 'up2mist' )
+			) 
+			);
 
 	/* Add support for the Aside and Gallery Post Formats */
 	add_theme_support( 'post-formats', array( 'aside', ) );
@@ -99,14 +104,31 @@ add_action( 'wp_enqueue_scripts', 'up2mist_enqueue_scripts' );
 
 /* Register widgetized area and update sidebar with default widgets */
 function up2mist_widgets_init() {
+
 	register_sidebar( array(
-		'name' => __( 'Sidebar', 'up2mist' ),
-		'id' => 'sidebar-1',
-		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-		'after_widget' => "</aside>",
-		'before_title' => '<h1 class="widget-title">',
-		'after_title' => '</h1>',
+		'name' => __( 'Sidebar Top', 'up2mist' ),
+		'id' => 'sidebar-top',
+		'before_widget' => '	<aside id="%1$s" class="widget %2$s">
+					<ul class="nav nav-list">',
+		'after_widget' => "	</ul>
+					</aside>",
+		'before_title' => '<li class="nav-header">',
+		'after_title' => '</li><li class="divider"></li></ul>'
 	) );
+
+	register_sidebar( array(
+		'name' => __( 'Sidebar Bottom', 'up2mist' ),
+		'id' => 'sidebar-1',
+		'before_widget' => '	<aside id="%1$s" class="widget %2$s">
+					<ul class="nav nav-list">',
+		'after_widget' => "	</ul>
+					</aside>",
+		'before_title' => '<li class="nav-header">',
+		'after_title' => '</li><li class="divider"></li></ul>'
+	) );
+	
+
+
 }
 
 add_action( 'widgets_init', 'up2mist_widgets_init' );
@@ -116,5 +138,6 @@ function custom_excerpt_length( $length ) {
 	return 20;
 }
 add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
+
 
 ?>

@@ -3,6 +3,8 @@ jQuery(function($) {
 	
 	// pause all carousel
 	$('.carousel').carousel('pause');
+	
+	
 
 })// end function jQuery
 
@@ -18,6 +20,14 @@ jQuery( document ).ready( function( $ ) {
 	}).mouseleave(function() {
 	    $(this).carousel('pause');
 	}); 
+	
+	// add icons to menu 
+	$('.home-but').find('a').prepend('<i class="icon-home"></i>');
+	$('.tools-but').find('a').prepend('<i class="icon-signal"></i>');
+	$('.reports-but').find('a').prepend('<i class="icon-book"></i>');
+	$('.blog-but').find('a').prepend('<i class="icon-pencil"></i>');
+	$('.about-but').find('a').prepend('<i class="icon-info-sign"></i>');
+	
 	
 
 })// end window load
