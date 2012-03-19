@@ -86,9 +86,9 @@ get_header( );
 				<div class='span3'>" 
 				. get_the_post_thumbnail() .
 				"</div>
-				<div class='span4'>";
+				<div class='span5'>";
 			} else {
-				echo "<div class='span7'>";
+				echo "<div class='span8'>";
 			} ?>
 				<h2><a href="<?php the_permalink() ; ?>"><?php the_title() ?></a></h2>
 				<p><?php the_excerpt() ?></p>
@@ -136,24 +136,30 @@ get_header( );
 		$close = 0;
 		if($j==0)  {
 			echo '<div class="item active row slide">';
-		} elseif ($j == 4 || $j == 8 || $j == 12 ) {
+		} elseif ($j == 3 || $j == 6 || $j == 9 || $j == 12 ) {
 			echo '</div>';
 			echo '<div class="item row slide">';
 			$close =1;
 		}
 		?>
-		<article class="span2">
-			<div class='thumbnail'>
-				<a href="<?php the_permalink(); ?>">
+		<article class="span3">
+				<a class='thumbnail tool' 
+				href="<?php the_permalink(); ?>"
+				rel="popover" 
+				data-content="<?php print_custom_field('headline'); ?>"
+				data-original-title="<i class='icon-eye-open'></i>  <?php the_title(); ?>">
 				  <img src="<?php print_custom_field('logo:to_image_src'); ?>" />
 				</a>
+				
+				
+				
 				<a href="<?php the_permalink() ?>">
 				  <h5><i class="icon-eye-open"></i>  <?php the_title(); ?></h5>
 				</a>
-				<small><?php print_custom_field('headline'); ?></small>
+				<small></small>
 			
 
-			</div>
+			
 			
 			
 		</article>
@@ -167,7 +173,7 @@ get_header( );
 		<a class="carousel-control right" href="#tools" data-slide="next">&rsaquo;</a>
 		</section>
 		
-		<section class="posts">
+		<section class="cols row">
 		<?php
 		$args = array(
 			'post_type'=>'post',
@@ -182,16 +188,70 @@ get_header( );
 						)
 					)
 		);
+
+		?>
+		<section id="recent" class="span7 tabbable tabs-left row">
 		
-		query_posts($args);
-		if ( have_posts() ) while ( have_posts() ) : the_post(); 
-		?>
+			<header class="page-header entry-header">
+				<h6>Recent post</h6>
+			</header>
 
-		<?php
-		    get_template_part( 'content', get_post_format( ) );
-		?>
 
-		<?php endwhile;?>
+			<ul id="recent-nav" class="span2 nav nav-tabs">
+			
+				<?php 
+				//first query to build nav
+				$i =0;
+				query_posts($args);
+				if ( have_posts() ) while ( have_posts() ) : the_post(); 
+				?>
+			
+				<li class="tab">
+				<a <?php if($i==0) echo'class="active"'?> data-toggle="tab" href="#post-<?php the_ID( );?>" title="<?php printf( esc_attr__( 'Permalink to %s', 'up2mist' ), the_title_attribute( 'echo=0' ) );?>" rel="bookmark"><?php the_title( );?></a>
+				</li>
+				<?php
+				$i++;
+				 endwhile; wp_reset_postdata(); ?>
+			</ul>
+			
+			<div class="tab-content span4 ">
+
+			<?php
+			// second query to build content
+			$i=0;
+			query_posts($args);
+			if ( have_posts() ) while ( have_posts() ) : the_post(); 
+			
+			?>
+			<?php 
+			$myclass='tab-pane';
+			if($i==0) $myclass="tab-pane active"; ?>
+			
+			<article id="post-<?php the_ID( );?>" <?php post_class( $myclass); ?> >
+				
+				<h3>
+					<a class="toggle" href="#collapse-<?php the_ID( );?>" title="<?php printf( esc_attr__( 'Permalink to %s', 'up2mist' ), the_title_attribute( 'echo=0' ) );?>" rel="bookmark"><?php the_title( );?></a>
+				</h3>
+				<?php the_excerpt()?>
+				<button href="<?php the_permalink() ?>" class="btn btn-primary">Read</button>
+				
+			</article>
+			<?php 
+			$i++;
+			endwhile;?>
+			</div><!-- class-content -->
+		</section>
+		
+		
+
+		
+		<section class="span2">
+			<header class="page-header entry-header">
+			<h6>Other updates</h6>
+			</header>
+			<small>Here can go some updates or important announcement</small>
+		</section>
+
 		</section>
 		<?php up2mist_content_nav( );?>
 

@@ -28,8 +28,7 @@
 					<ul class="nav nav-tabs">
 					  <li class="active"><a href="#sidebar-menu" data-toggle="tab">Menu</a></li>
 					  <li class=""><a href="#search" data-toggle="tab">Search</a></li>
-					  <li class=""><a href="#sns" data-toggle="tab">SNS</a></li>
-					  <li class=""><a href="#widget" data-toggle="tab">Widgets</a></li>
+					  <li class=""><a href="#widgets" data-toggle="tab">Widgets</a></li>
 					</ul>
 					
 					
@@ -54,15 +53,9 @@
 						);
 						?>
 					
-						<div id="sns" class="tab-pane">
-						<?php if ( ! dynamic_sidebar( 'sns-top' ) ) :?>
-							<?php if ( current_user_can( 'edit_posts' ) ) :?>
-							<?php printf( __( 'Please select some widgets for "SNS Top" <a href="%1$s">Get started here</a>.', 'up2mist' ), admin_url( 'widgets.php' ) );?>
-							<?php endif; // end sidebar top?>
-						<?php endif; // end sidebar top?>
-						</div>
+
 						
-						<div id="widget" class="tab-pane">
+						<div id="widgets" class="tab-pane">
 						<?php if ( ! dynamic_sidebar( 'sidebar-top' ) ) :?>
 							<?php if ( current_user_can( 'edit_posts' ) ) :?>
 							<?php printf( __( 'Please select some widgets for "SIDEBAR Top" <a href="%1$s">Get started here</a>.', 'up2mist' ), admin_url( 'widgets.php' ) );?>

@@ -5,6 +5,12 @@ jQuery(function($) {
 	$('.carousel').carousel('pause');
 	
 	
+	// popover tooltip for tools gallery 
+	$('.tool').popover({'placement': 'top'});
+	
+	// recents post viewer
+
+	
 
 })// end function jQuery
 
