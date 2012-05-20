@@ -34,6 +34,10 @@ padding-top:30px
 body.navbar-fixed {
 	padding-top: 60px;
 }
+.clear {
+clear:both
+}
+
 /* Headings */
 
 /* Text elements */
@@ -260,3 +264,45 @@ ol.commentlist .comment-author {
 #searchsubmit {
 	display: none;
 }
+
+.widget {margin-bottom: 35px;}
+.widget-small {width: 130px;}
+.widget h3, .widget-small h3 {color: #1f2122; font-size: 14px; font-weight: normal; text-transform: uppercase; padding-bottom: 15px; margin-bottom: 20px; border-bottom: 1px solid #d9d9d9;}
+.widget a, .widget-small a {color: #000; text-decoration: none;}
+.widget a:hover, .widget-small a:hover {text-decoration: underline;}
+.widget p, .textwidget {color: #262626; font: 12px/1.3 Helvetica, Arial, sans-serif;}
+.widget p a, .textwidget a {text-decoration: underline;}
+.widget p a:hover, .textwidget a:hover {text-decoration: none;}
+.widget li, .widget-small li {font-size: 12px; color: #262626; margin-bottom: 3px;}
+
+.widget_getconnected {margin-bottom: 20px;}
+.widget_getconnected .widget-body div {width: 50%; float: left; min-height: 40px; padding-bottom: 16px;}
+.widget_getconnected .widget-body div a {display: block; color: #24211f; font-size: 16px; padding-left: 25px;}
+.widget_getconnected .widget-body div span {color: #838383; font: 11px Helvetica, Arial, sans-serif; padding-left: 25px;}
+.getconnected_rss a {background: url("img/getconnected_rss.png") 0 2px no-repeat;}
+.getconnected_twitter a {background: url("img/getconnected_twitter.png") 0 2px no-repeat;}
+.getconnected_fb a {background: url("img/getconnected_fb.png") 0 2px no-repeat;}
+.getconnected_flickr a {background: url("img/getconnected_flickr.png") 0 2px no-repeat;}
+.getconnected_behance a {background: url("img/getconnected_behance.png") 0 2px no-repeat;}
+.getconnected_delicious a {background: url("img/getconnected_delicious.png") 0 2px no-repeat;}
+.getconnected_stumbleupon a {background: url("img/getconnected_stumbleupon.png") 0 2px no-repeat;}
+.getconnected_tumblr a {background: url("img/getconnected_tumblr.png") 0 2px no-repeat;}
+.getconnected_vimeo a {background: url("img/getconnected_vimeo.png") 0 2px no-repeat;}
+.getconnected_youtube a {background: url("img/getconnected_youtube.png") 0 2px no-repeat;}
+
+.rpthumb {display: block; padding-bottom: 15px; margin-top: 15px; border-bottom: 1px dotted #d9d9d9;}
+.rpthumb img {width: 50px; width: 50px; margin-right: 15px; float: left;}
+.rpthumb-title {display: block; font: 12px Georgia, Geneva, "Times New Roman", times; margin-bottom: 6px;}
+.rpthumb-date {display: block; font-size: 11px; color: #aaa9a9;}
+.rpthumb:hover {text-decoration: none !important;}
+.rpthumb:hover .rpthumb-title {text-decoration: underline;}
+
+.widget_tag_cloud a {margin: 0 2px;}
+.widget_calendar table {width: 100%;}
+.widget_calendar caption {font-size: 13px; padding-bottom: 10px; text-align: left;}
+.widget_calendar th, .widget_calendar td {padding: 5px 0; font-size: 13px;}
+.widget_calendar tbody a {text-decoration: underline;}
+.widget_calendar tbody a:hover {text-decoration: none}
+
+.sponsors .widget-body {text-align: center;}
+.sponsors .widget-body img {margin-bottom: 20px;}
