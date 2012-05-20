@@ -108,9 +108,10 @@ get_header( );
 
 
 		<?php
-		// tools slideshow 
-		$j =0;
 		
+		// tools slideshow 
+		
+		$j =0;
 		$args = array(
 			'post_type'=>'tool',
 			'order'=>'DESC',
@@ -140,7 +141,7 @@ get_header( );
 		}
 		?>
 		<article class="span2">
-				<a class='thumbnail tool' 
+				<a class='tool' 
 				href="<?php the_permalink(); ?>"
 				rel="popover" 
 				data-content="<?php print_custom_field('headline'); ?>"
@@ -153,7 +154,7 @@ get_header( );
 				  	echo '<img src="http://placehold.it/350x350" />';
 				  }
 				  ?>
-				  <h5><i class="icon-eye-open"></i>  <?php the_title(); ?></h5>
+				  <h3><?php the_title(); ?></h3>
 
 				</a>
 				

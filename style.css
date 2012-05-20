@@ -121,10 +121,6 @@ text-align:justify;
 font-size:1em
 }
 
-#featured img { max-height:100% }
-#featured .carousel-control {height: 265px;}
-#tools .carousel-control {height: 180px;}
-
 .carousel-control {
 	background-color: #ddd;
 	top: 0;
@@ -139,9 +135,29 @@ font-size:1em
 .carousel-control.right { right:0px}
 .carousel-control.left { left:0px}
 
+#featured img { max-height:100% }
+#featured .carousel-control {height: 265px;}
 
+#tools .carousel-control {height: 180px;}
 #tools .carousel-inner {padding-left:50px}
 #tools .tool-title { position:relative; top:20px}
+
+#tools h3 {
+text-align:center;
+color:#fff;
+background-color:#ccc;
+display:block;
+height:25px;
+position:relative; 
+top:-25px;
+width:100%;
+}
+
+#tools h3:hover {
+color: white;
+text-decoration: none;
+opacity: 0.5;
+}
 
 .item {
 height:265px
