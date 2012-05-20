@@ -10,12 +10,12 @@
  Tags: bootstrap, responsive
 
  */
+ 
 
 /* =Layout
  -------------------------------------------------------------- */
  #masthead .navbar{
  display:none;
- 
  }
  
  #masthead {
@@ -31,6 +31,16 @@ padding-top:30px
 
 /* =Global
  ----------------------------------------------- */
+
+
+body {
+font-family:'Asap', Arial, sans-serif,font-weight:400;
+}
+
+h1,h2,h3,h4,h5,h6 {
+font-family:'Signika Negative', Arial, sans-serif, font-weight:300;
+}
+
 body.navbar-fixed {
 	padding-top: 60px;
 }
@@ -103,9 +113,36 @@ border-bottom: 1px solid #CCC;
 }
 /* =Homepage
  ----------------------------------------------- */
-.home .hero-unit {
-padding:30px
+.home .hero-unit { padding:0px}
+.home .hero-unit .text { padding:10px }
+.home .hero-unit p {
+line-height: 1.3em; 
+text-align:justify; 
+font-size:1em
 }
+
+#featured img { max-height:100% }
+#featured .carousel-control {height: 265px;}
+#tools .carousel-control {height: 180px;}
+
+.carousel-control {
+	background-color: #ddd;
+	top: 0;
+	-webkit-border-radius : 0; 
+	border-radius:0px;
+	-moz-border-radius: 0;
+	border:none;
+	margin:0;
+	font-size:2em;
+	width:25px
+}
+.carousel-control.right { right:0px}
+.carousel-control.left { left:0px}
+
+
+#tools .carousel-inner {padding-left:50px}
+#tools .tool-title { position:relative; top:20px}
+
 .item {
 height:265px
 }

@@ -67,13 +67,18 @@ function up2mist_setup() {
 /* Load stylesheets */
 function up2mist_load_styleheets() {
 
-	$html = "\t" . '<link rel="stylesheet" href="' . UP2MIST_URI . '/css/bootstrap.css' . '">' . "\n";
+	$html = "<link href='http://fonts.googleapis.com/css?family=Signika+Negative:300,400,600,700' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Asap:400,700,400italic,700italic' rel='stylesheet' type='text/css'>";
+		
+	$html .= "\t" . '<link rel="stylesheet" href="' . UP2MIST_URI . '/css/bootstrap.css' . '">' . "\n";
 
 	if ( UP2MIST_RESPONSIVE ) {
 		$html .= "\t" . '<link rel="stylesheet" href="' . UP2MIST_URI . '/css/bootstrap-responsive.min.css' . '">' . "\n";
 	}
 
 	$html .= "\t" . '<link rel="stylesheet" href="' . UP2MIST_URI . '/style.css' . '">' . "\n";
+	
+	
 
 	echo $html;
 }

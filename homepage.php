@@ -13,6 +13,8 @@ get_header( );
 	<div id="primary" class="<?php echo UP2MIST_PRIMARY;?> site-content">
 		<div id="content" role="main">
 		
+		
+		
 		<?php
 		// display latest report
 		
@@ -80,23 +82,18 @@ get_header( );
 		?>
 		<article class="item <?php if($i==0) echo 'active'?> hero-unit slide">
 			<div class="row">
-			<?php 
-			if(get_the_post_thumbnail()) {
-				echo "
-				<div class='span3'>" 
-				. get_the_post_thumbnail() .
-				"</div>
-				<div class='span5'>";
-			} else {
-				echo "<div class='span8'>";
-			} ?>
+				<div class="span3">
+				<?php 
+				if ( get_the_post_thumbnail() ) {
+						echo get_the_post_thumbnail();
+					} else {
+						echo '<a href="' . get_permalink() .'" class="btn btn-info btn-large">Read the post</a>';
+					} 
+				?>	
+				</div>
+				<div class="span5 text">
 				<h2><a href="<?php the_permalink() ; ?>"><?php the_title() ?></a></h2>
 				<p><?php the_excerpt() ?></p>
-				<p>
-				<a href="<?php the_permalink() ?>" class="btn btn-info btn-large">
-				Read the post
-				</a>
-				</p>
 			</div><!--span -->
 			</div><!--row -->
 		</article>
@@ -136,27 +133,30 @@ get_header( );
 		$close = 0;
 		if($j==0)  {
 			echo '<div class="item active row slide">';
-		} elseif ($j == 3 || $j == 6 || $j == 9 || $j == 12 ) {
+		} elseif ($j == 4 || $j == 8 || $j == 12 || $j == 16 ) {
 			echo '</div>';
 			echo '<div class="item row slide">';
 			$close =1;
 		}
 		?>
-		<article class="span3">
+		<article class="span2">
 				<a class='thumbnail tool' 
 				href="<?php the_permalink(); ?>"
 				rel="popover" 
 				data-content="<?php print_custom_field('headline'); ?>"
 				data-original-title="<i class='icon-eye-open'></i>  <?php the_title(); ?>">
-				  <img src="<?php print_custom_field('logo:to_image_src'); ?>" />
-				</a>
-				
-				
-				
-				<a href="<?php the_permalink() ?>">
+				  <?php if( get_custom_field("logo") ) {
+				  	echo '<img src="';
+				  	print_custom_field('logo:to_image_src') ;
+				  	echo '" />';
+				  } else {
+				  	echo '<img src="http://placehold.it/350x350" />';
+				  }
+				  ?>
 				  <h5><i class="icon-eye-open"></i>  <?php the_title(); ?></h5>
+
 				</a>
-				<small></small>
+				
 			
 
 			
@@ -190,48 +190,32 @@ get_header( );
 		);
 
 		?>
-		<section id="recent" class="span7 tabbable tabs-left row">
-		
-			<header class="page-header entry-header">
-				<h6>Recent post</h6>
-			</header>
-
-
-			<ul id="recent-nav" class="span2 nav nav-tabs">
+		<section id="recent" class="span7 row">
 			
-				<?php 
-				//first query to build nav
-				$i =0;
-				query_posts($args);
-				if ( have_posts() ) while ( have_posts() ) : the_post(); 
-				?>
-			
-				<li class="tab">
-				<a <?php if($i==0) echo'class="active"'?> data-toggle="tab" href="#post-<?php the_ID( );?>" title="<?php printf( esc_attr__( 'Permalink to %s', 'up2mist' ), the_title_attribute( 'echo=0' ) );?>" rel="bookmark"><?php the_title( );?></a>
-				</li>
-				<?php
-				$i++;
-				 endwhile; wp_reset_postdata(); ?>
-			</ul>
-			
-			<div class="tab-content span4 ">
+			<div class="">
 
 			<?php
 			// second query to build content
 			$i=0;
 			query_posts($args);
 			if ( have_posts() ) while ( have_posts() ) : the_post(); 
-			
 			?>
-			<?php 
-			$myclass='tab-pane';
-			if($i==0) $myclass="tab-pane active"; ?>
+
 			
 			<article id="post-<?php the_ID( );?>" <?php post_class( $myclass); ?> >
-				
-				<h3>
-					<a class="toggle" href="#collapse-<?php the_ID( );?>" title="<?php printf( esc_attr__( 'Permalink to %s', 'up2mist' ), the_title_attribute( 'echo=0' ) );?>" rel="bookmark"><?php the_title( );?></a>
+			<header class="page-header entry-header">
+				<h6 class="post-category"><?php the_category(' / '); ?></h6>
+				<div class="post-meta">by <span class="post-author"><a
+                    href="<?php echo get_author_posts_url(get_the_author_meta('ID')); ?>" title="Posts by <?php the_author(); ?>"><?php the_author(); ?></a></span>
+                                   on <span
+                        class="post-date"><?php the_time(__('M j, Y')) ?></span> <em>&bull; </em><?php comments_popup_link(__('No Comments'), __('1 Comment'), __('% Comments'), '', __('Comments Closed')); ?> <?php edit_post_link( __( 'Edit entry'), '<em>&bull; </em>'); ?>
+            </div>
+            		<h3>
+				<a class="toggle" href="#collapse-<?php the_ID( );?>" title="<?php printf( esc_attr__( 'Permalink to %s', 'up2mist' ), the_title_attribute( 'echo=0' ) );?>" rel="bookmark"><?php the_title( );?></a>
 				</h3>
+			</header>
+
+			
 				<?php the_excerpt()?>
 				<button href="<?php the_permalink() ?>" class="btn btn-primary">Read</button>
 				
@@ -247,9 +231,9 @@ get_header( );
 		
 		<section class="span2">
 			<header class="page-header entry-header">
-			<h6>Other updates</h6>
+			<h6>Curated</h6>
 			</header>
-			<small>Here can go some updates or important announcement</small>
+			<small>Here can go some updates coming from 3rd part, feeds, streams, users, etc.</small>
 		</section>
 
 		</section>

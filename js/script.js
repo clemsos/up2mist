@@ -3,8 +3,6 @@ jQuery(function($) {
 	
 	// pause all carousel
 	$('.carousel').carousel('pause');
-	
-	
 	// popover tooltip for tools gallery 
 	$('.tool').popover({'placement': 'top'});
 	
