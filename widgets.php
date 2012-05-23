@@ -1,3 +1,5 @@
+<?php
+
 class GetConnected extends WP_Widget {
 
     function GetConnected() {
