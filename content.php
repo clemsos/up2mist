@@ -7,12 +7,14 @@
 			<article id="post-<?php the_ID( );?>" <?php post_class( );?>>
 				<?php up2mist_before_post( );?>
 				<header class="page-header entry-header">
+					<div class="entry-meta clearfix">
+						<?php up2mist_posted_on( );
+						
+						?>
+					</div><!-- .entry-meta -->
 					<h1 class="entry-title"><a href="<?php the_permalink( );?>" title="<?php printf( esc_attr__( 'Permalink to %s', 'up2mist' ), the_title_attribute( 'echo=0' ) );?>" rel="bookmark"><?php the_title( );?></a></h1>
 					<?php if ( 'post' == get_post_type() ) :
 					?>
-					<div class="entry-meta clearfix">
-						<?php up2mist_posted_on( );?>
-					</div><!-- .entry-meta -->
 					<?php endif;?>
 					
 				</header><!-- .entry-header -->

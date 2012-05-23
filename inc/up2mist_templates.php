@@ -103,14 +103,23 @@ function up2mist_content_nav($before = false, $after = false) {
 function up2mist_posted_on() {
     //printf( __( 'Posted on <a href="%1$s" title="%2$s" rel="bookmark"><time class="entry-date" datetime="%3$s" pubdate>%4$s</time></a><span class="byline"> by <span class="author vcard"><a class="url fn n" href="%5$s" title="%6$s" rel="author">%7$s</a></span></span>', 'up2mist' ), esc_url( get_permalink( ) ), esc_attr( get_the_time( ) ), esc_attr( get_the_date( 'c' ) ), esc_html( get_the_date( ) ), esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ), esc_attr( sprintf( __( 'View all posts by %s', 'up2mist' ), get_the_author( ) ) ), esc_html( get_the_author( ) ) );
 
-    $html = "\t" . '<i class="icon-calendar"></i>' . "\n";
-    $html .= "\t" . '<a href="' . get_permalink( ) . '" title="' . get_the_time( ) . '" rel="bookmark"><time class="entry-date" datetime="' . get_the_date( 'c' ) . '" pubdate>' . esc_html( get_the_date( ) ) . '</time></a>' . "\n";
-    $html .= "\t" . '<i class="icon-user"></i>' . "\n";
+    $html = "\t" . '<i class="icon-user"></i>' . "\n";
     $html .= "\t" . '<span class="author vcard"><a class="url fn n" href="' . get_author_posts_url( get_the_author_meta( 'ID' ) ) . '" title="' . __( 'View all posts by ', 'up2mist' ) . get_the_author( ) . '" rel="author">' . get_the_author( ) . '</a></span>' . "\n";
+
+    $html .= "\t" . '<i class="icon-calendar"></i>' . "\n";
+    $html .= "\t" . '<a href="' . get_permalink( ) . '" title="' . get_the_time( ) . '" rel="bookmark"><time class="entry-date" datetime="' . get_the_date( 'c' ) . '" pubdate>' . esc_html( get_the_date( ) ) . '</time></a>' . "\n";
 
     echo $html;
 }
 
+function up2mist_comment_popup() {
+    echo  "\t" . '<span class="comment-link"><i class="icon-comment"></i>' . "\n";
+    comments_popup_link(__('No Comments'), __('1 Comment'), __('% Comments'), '', __('Comments Closed')) . "</span>" .  "\n";
+
+    echo  "\t" . '<i class="icon-wrench"></i>' . "\n";
+    edit_post_link( __( 'Edit entry'));
+}
+            
 /*
  * Template for comments and pingbacks.
  * Used as a callback by wp_list_comments() for displaying the comments.

@@ -8,10 +8,14 @@
 			<article id="post-<?php the_ID( );?>" <?php post_class( );?>>
 				<?php up2mist_before_post( );?>
 				<header class="page-header entry-header">
-					<h1 class="entry-title"><?php the_title( );?></h1>
+					<h6 class="post-category"><?php the_category(' / '); ?></h6>
 					<div class="entry-meta clearfix">
-						<?php up2mist_posted_on( );?>
+						<?php up2mist_posted_on( );
+						up2mist_comment_popup();
+						?>
 					</div><!-- .entry-meta -->
+					
+					<h1 class="entry-title"><?php the_title( );?></h1>
 				</header><!-- .entry-header -->
 				<div class="entry-content clearfix">
 					
