@@ -74,7 +74,7 @@ get_header( );
 		
 		if ( have_posts() ) :
 		?>
-		<section id="featured" class="carousel">
+		<section id="featured" class="carousel shadowbox">
 		<div class="carousel-inner">
 		
 		<?php /* Start the Loop */?>
@@ -141,7 +141,7 @@ get_header( );
 		}
 		?>
 		<article class="span2">
-				<a class='tool' 
+				<a class="tool" 
 				href="<?php the_permalink(); ?>"
 				rel="popover" 
 				data-content="<?php print_custom_field('headline'); ?>"
@@ -203,8 +203,8 @@ get_header( );
 			?>
 
 			
-			<article id="post-<?php the_ID( );?>" <?php post_class( $myclass); ?> >
-			<header class="page-header entry-header">
+			<article id="post-<?php the_ID( );?>" <?php post_class( $myclass." shawdowbox" ); ?> >
+			<header class="page-header entry-header rounded-corners">
 				<h6 class="post-category"><?php the_category(' / '); ?></h6>
 				<div class="post-meta">by <span class="post-author"><a
                     href="<?php echo get_author_posts_url(get_the_author_meta('ID')); ?>" title="Posts by <?php the_author(); ?>"><?php the_author(); ?></a></span>
@@ -212,7 +212,7 @@ get_header( );
                         class="post-date"><?php the_time(__('M j, Y')) ?></span> <em>&bull; </em><?php comments_popup_link(__('No Comments'), __('1 Comment'), __('% Comments'), '', __('Comments Closed')); ?> <?php edit_post_link( __( 'Edit entry'), '<em>&bull; </em>'); ?>
             </div>
             		<h3>
-				<a class="toggle" href="#collapse-<?php the_ID( );?>" title="<?php printf( esc_attr__( 'Permalink to %s', 'up2mist' ), the_title_attribute( 'echo=0' ) );?>" rel="bookmark"><?php the_title( );?></a>
+				<a href="<?php the_permalink( );?>" title="<?php printf( esc_attr__( 'Permalink to %s', 'up2mist' ), the_title_attribute( 'echo=0' ) );?>" rel="bookmark"><?php the_title( );?></a>
 				</h3>
 			</header>
 

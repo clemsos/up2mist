@@ -12,6 +12,9 @@
  */
  
 
+
+@import url("css/effects.css");
+
 /* =Layout
  -------------------------------------------------------------- */
  #masthead .navbar{
@@ -29,12 +32,17 @@ height:250px;
 padding-top:30px
 }
 
+
 /* =Global
  ----------------------------------------------- */
 
-
 body {
 font-family:'Asap', Arial, sans-serif,font-weight:400;
+background-color: #F1F1F1;
+background-image: url(img/bg.png);
+background-repeat: repeat;
+line-height: 1.6em !important;
+color: #666;
 }
 
 h1,h2,h3,h4,h5,h6 {
@@ -47,6 +55,7 @@ body.navbar-fixed {
 .clear {
 clear:both
 }
+
 
 /* Headings */
 
@@ -167,9 +176,30 @@ height:265px
 float:right
 }
 
-#news {
-height :800px
+#news { height :800px }
+
+
+
+#recent article {
+-moz-border-radius: 5px;
+-webkit-border-radius: 5px;
+border-radius: 5px;
+-moz-box-shadow: 0 1px 0 #9a9a9a;
+-webkit-box-shadow: 0 1px 0 #9a9a9a;
+box-shadow: 0 1px 0 #9a9a9a;
+margin: 0 0 10px;
+padding: 10px;
+text-shadow: 0 1px 0 white;
+position: relative;
+z-index: 0;
 }
+
+#recent header {
+border: 1px solid #ccc;
+padding:8px
+}
+
+
 /* =Content
  ----------------------------------------------- */
 
@@ -311,8 +341,7 @@ ol.commentlist .comment-author {
 /* =Widgets
  ----------------------------------------------- */
 
-.widget {
-}
+
 /* Search widget */
 #searchsubmit {
 	display: none;

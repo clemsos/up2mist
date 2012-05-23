@@ -12,7 +12,7 @@
 				
 				<?php do_action( 'before_sidebar' );?>
 				
-				<section id="main-sidebar" class="well">
+				<section id="main-sidebar" class="shadowbox well">
 					
 					
 					
