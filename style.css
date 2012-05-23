@@ -129,6 +129,12 @@ line-height: 1.3em;
 text-align:justify; 
 font-size:1em
 }
+.home .hero-unit .btn-info{
+top: 120px;
+position: relative;
+text-align: center;
+left: 70px;
+}
 
 .carousel-control {
 	background-color: #ddd;
