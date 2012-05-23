@@ -33,9 +33,9 @@ body:before, .shadow-bottom
 }
 
 .shadowed {
-	-webkit-box-shadow:  1px 0px 12px #555;
-	   -moz-box-shadow:  1px 0px 12px #555;
-	        box-shadow:  1px 0px 12px #555;
+	-webkit-box-shadow:  5px 3px 12px #555;
+	   -moz-box-shadow:  5px 3px 12px #555;
+	        box-shadow:  5px 3px 12px #555;
 }
 
 .shadowbox
