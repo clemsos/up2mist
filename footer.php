@@ -47,7 +47,7 @@
 				
 			</footer><!-- .site-footer .site-footer -->
 			<p class="copy">
-				<small>&copy; <?php echo date( 'Y' );?> <?php bloginfo( 'name' );?> | designed by <a href="http://clemsos.com">Clément Renaud</a></small>
+				<small> <?php bloginfo( 'name' );?> Theme designed by <a href="http://clementrenaud.com">Clément Renaud</a> - Released under <a href="http://sharism.org">Sharing Agreement</a> - <?php echo date( 'Y' );?></small>
 				</p>
 			</div><!-- #page .hfeed .site -->
 			<?php wp_footer( );?>
