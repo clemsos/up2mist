@@ -12,13 +12,12 @@
 				
 				<?php do_action( 'before_sidebar' );?>
 				
-				<section id="main-sidebar" class="shadowbox well">
+				<section id="main-sidebar" class="well">
 					
 					
 					
 					<aside class="branding-sidebar">
 					<a class="brand" href="<?php echo home_url( );?>/"> <?php bloginfo( 'name' );?></a>
-					<div></div>
 
 					</aside>
 					

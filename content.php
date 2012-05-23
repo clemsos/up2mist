@@ -9,7 +9,7 @@
 				<header class="page-header entry-header">
 					<div class="entry-meta clearfix">
 						<?php up2mist_posted_on( );
-						
+						up2mist_comment_popup();
 						?>
 					</div><!-- .entry-meta -->
 					<h1 class="entry-title"><a href="<?php the_permalink( );?>" title="<?php printf( esc_attr__( 'Permalink to %s', 'up2mist' ), the_title_attribute( 'echo=0' ) );?>" rel="bookmark"><?php the_title( );?></a></h1>

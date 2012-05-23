@@ -140,7 +140,7 @@ get_header( );
 			$close =1;
 		}
 		?>
-		<article class="span2">
+		<article class="span2 shadowed">
 				<a class="tool" 
 				href="<?php the_permalink(); ?>"
 				rel="popover" 

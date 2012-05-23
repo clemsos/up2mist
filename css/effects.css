@@ -3,7 +3,7 @@ Some useful classes to add effects with CSS
 by Clément Renaud
 */
 
-body:before
+body:before, .shadow-bottom
 {
    content: "";
    position: fixed;
@@ -32,10 +32,15 @@ body:before
   opacity: 0.7;
 }
 
+.shadowed {
+	-webkit-box-shadow:  1px 0px 12px #555;
+	   -moz-box-shadow:  1px 0px 12px #555;
+	        box-shadow:  1px 0px 12px #555;
+}
+
 .shadowbox
 {
   position: relative;
-  background: #ddd;
   -moz-border-radius: 4px;
   border-radius: 4px;
   padding: 2em 1.5em;

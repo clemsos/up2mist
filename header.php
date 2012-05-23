@@ -50,12 +50,16 @@
 		<div id="page" class="container hfeed site">
 			<?php up2mist_before_header( );?>
 			<header id="masthead" class="site-header" role="banner">
-				<div class="<?php echo UP2MIST_NAVCLASS; ?>">
+			<a class="branding" href="<?php echo home_url( );?>/"> <?php bloginfo( 'name' );?></a>
+				<div class="navbar-fixed-top navbar <?php echo UP2MIST_NAVCLASS; ?>">
 					<div class="navbar-inner">
 						<div class="container">
-							<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a>
+							<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span></a>
 							<a class="brand" href="<?php echo home_url( );?>/"> <?php bloginfo( 'name' );?></a>
-							<nav role="navigation" class="nav-collapse site-navigation main-navigation">
+							<nav role="navigation" class="nav-collapse site-navigation main-navigation pull-right">
 								<?php wp_nav_menu( array(
 									'theme_location' => 'primary',
 									'container' => false,
@@ -64,6 +68,8 @@
 								) );
 								?>
 							</nav>
+
+
 						</div>
 					</div>
 				</div><!-- .navbar -->

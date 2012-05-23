@@ -17,11 +17,8 @@
 
 /* =Layout
  -------------------------------------------------------------- */
- #masthead .navbar{
- display:none;
- }
  
- #masthead {
+#masthead {
  padding: 0 0 15px 0
  }
  
@@ -32,14 +29,17 @@ height:250px;
 padding-top:30px
 }
 
+#main {
+margin-top : 35px;
+}
 
 /* =Global
  ----------------------------------------------- */
 
 body {
 font-family:'Asap', Arial, sans-serif,font-weight:400;
-background-color: #F1F1F1;
-background-image: url(img/bg.png);
+background-color: #fff;
+background-image: url(img/homebg.gif);
 background-repeat: repeat;
 line-height: 1.6em !important;
 color: #666;
@@ -51,7 +51,26 @@ font-family:'Signika Negative', Arial, sans-serif, font-weight:300;
 
 body.navbar-fixed {
 	padding-top: 60px;
+	
 }
+
+#masthead .brand {
+padding-left:140px
+}
+
+.branding {
+height: 65px;
+width: 120px;
+position: absolute;
+z-index: 20000;
+background: url("img/logo.png") no-repeat scroll 0 top transparent;
+display: block;	
+float: left;
+overflow:visible;
+text-indent: -9000px;
+}
+
+
 .clear {
 clear:both
 }
@@ -103,9 +122,21 @@ a:hover, a:focus, a:active {
 
 /* sidebar */
 
-#sidebar {
-font-size:0.8em;
+#main-sidebar {
+background: #ffffff; /* Old browsers */
+background: -moz-linear-gradient(top, #ffffff 0%, #f1f1f1 46%, #e1e1e1 93%, #f6f6f6 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(46%,#f1f1f1), color-stop(93%,#e1e1e1), color-stop(100%,#f6f6f6)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top, #ffffff 0%,#f1f1f1 46%,#e1e1e1 93%,#f6f6f6 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top, #ffffff 0%,#f1f1f1 46%,#e1e1e1 93%,#f6f6f6 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top, #ffffff 0%,#f1f1f1 46%,#e1e1e1 93%,#f6f6f6 100%); /* IE10+ */
+background: linear-gradient(top, #ffffff 0%,#f1f1f1 46%,#e1e1e1 93%,#f6f6f6 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f6f6f6',GradientType=0 ); /* IE6-9 */
 }
+
+.branding-sidebar {
+background: url("img/cloud-left.png") no-repeat scroll 0 top transparent;
+}
+
 #secondary li{
 line-height:2em
 }
@@ -113,12 +144,15 @@ line-height:2em
 .branding-sidebar {
 text-align: center;
 font-size: 18pt;
-padding: 0 0 30px 0;
+padding: 25px 50px 65px 0;
+
 }
 
-.branding-sidebar div{
-height: 20px;
-border-bottom: 1px solid #CCC;
+.branding-sidebar a, .branding-sidebar a:visited {
+color:#282828
+}
+.branding-sidebar a {
+margin-top: 20px;
 }
 /* =Homepage
  ----------------------------------------------- */
@@ -147,16 +181,23 @@ left: 70px;
 	font-size:2em;
 	width:25px
 }
-.carousel-control.right { right:0px}
+.carousel-control.right { right:0px; bottom:0px}
 .carousel-control.left { left:0px}
 
-#featured, #main-sidebar {margin-top:0px}
+#featured { background-color:#EDEDED}
+#featured, #main-sidebar { margin-top:0px }
 #featured img { max-height:100% }
-#featured .carousel-control {height: 265px;}
+#featured .carousel-control {height: 100%; width:17px}
 
-#tools .carousel-control {height: 180px;}
+#tools .carousel-control {height: 180px; width:17px}
 #tools .carousel-inner {padding-left:50px}
 #tools .tool-title { position:relative; top:20px}
+
+#tools article {
+width:170px;
+height:170px;
+}
+
 
 #tools h3 {
 text-align:center;
