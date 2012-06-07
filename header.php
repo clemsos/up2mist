@@ -67,6 +67,9 @@
 									'walker' => new Fabric_Nav_Walker()
 								) );
 								?>
+							<span class="pull-right">
+							<?php do_action('icl_language_selector'); ?>
+							</span>
 							</nav>
 
 
