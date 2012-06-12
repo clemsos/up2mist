@@ -28,7 +28,7 @@ get_header( );
 		
 		if ( have_posts() ) : 
 		?>
-		<section id="latest-report" class="alert alert-block">
+		<section id="latest-report" class="alert alert-block alert-info">
 		<a class="close" data-dismiss="alert">×</a>
 		<?php while ( have_posts() ) : the_post(); 
 		?>

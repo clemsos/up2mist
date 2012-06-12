@@ -38,12 +38,28 @@ margin-top : 45px;
 
 body {
 font-family:'Asap', Arial, sans-serif,font-weight:400;
-background-color: #fff;
-background-image: url(img/homebg.gif);
-background-repeat: repeat;
 line-height: 1.6em !important;
 color: #666;
 }
+
+body {
+
+background-image: url(img/bgbg.gif);
+background-repeat: repeat;
+}
+
+#page{
+background-image: url(img/homebg.gif);
+background-repeat: repeat;
+background-color :#F9F9F9;
+background-z-index: -1;
+padding : 0 15px;
+}
+
+#content {
+background:transparent;
+}
+
 
 h1,h2,h3,h4,h5,h6 {
 font-family:'Signika Negative', Arial, sans-serif, font-weight:300;
@@ -75,6 +91,9 @@ text-indent: -9000px;
 clear:both
 }
 
+#about-box {
+color: #e5e5e5
+}
 
 /* Headings */
 
@@ -156,6 +175,12 @@ text-indent: -9000px;
 margin: 20px;
 }
 
+div.navbar-fixed-top .navbar-inner  {
+background:#0f3282;
+}
+div.navbar-fixed-top .navbar-inner a {
+color:#E5E5E5;
+}
 /* =Homepage
  ----------------------------------------------- */
 .home .hero-unit { background-color:#fff; padding:0px}
@@ -173,7 +198,7 @@ left: 70px;
 }
 
 .carousel-control {
-	background-color: #ddd;
+	background-color: transparent;
 	top: 0;
 	-webkit-border-radius : 0; 
 	border-radius:0px;
@@ -186,7 +211,7 @@ left: 70px;
 .carousel-control.right { right:0px; bottom:0px}
 .carousel-control.left { left:0px}
 
-#featured { background-color:#EDEDED}
+#featured { background-color:#8196c8;}
 #featured, #main-sidebar { margin-top:0px }
 #featured img { max-height:100% }
 #featured .carousel-control {height: 100%; width:17px}

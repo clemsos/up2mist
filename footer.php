@@ -9,10 +9,12 @@
  */
 ?>
 
-			</div><!-- #main -->
+		</div><!-- #main -->
+			</div><!-- #page -->
+			<div class="container">
 			<footer id="colophon" class="row site-footer" role="contentinfo">
 			
-				<div class="span3 well box">
+				<div id="about-box"class="span3 box">
 				<header class="page-header entry-header">
 				<h3>About</h3>
 				</header>
@@ -23,12 +25,12 @@
 				
 				<div class="span4 well box">
 					<header class="page-header entry-header">
-						<h3>More</h3>
+						<h3>Find us online</h3>
 					</header>
 					<?php up2mist_footer_inside( );?>
 				</div><!-- .site-info -->
 				
-				<div class="span3 well box">
+				<div class="span4 well box">
 						<h3>Contact us</h3>
 
 					<form>
