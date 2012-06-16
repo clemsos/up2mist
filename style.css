@@ -278,7 +278,6 @@ opacity: 0.5;
 }
 
 
-
 #latest-report .btn-group {
 float:right
 }
@@ -289,6 +288,11 @@ float:right
 padding:8px
 }
 
+
+.toolrow {
+border-bottom:1px solid #ccc;
+padding-bottom:15px
+}
 
 /* =Content
  ----------------------------------------------- */

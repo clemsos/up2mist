@@ -43,10 +43,13 @@ get_header( );
 				<td>Website</td>
 				<td><a href="<?php print_custom_field('officialurl'); ?>"><?php print_custom_field('officialurl'); ?></a></td>
 				</tr>
+
 				<tr>
 				<td>Blog</td>
 				<td>
+				
 				<a href="<?php print_custom_field('blogurl'); ?>"><?php print_custom_field('blogurl'); ?></a></td>
+
 				</tr>
 				<tr>
 				<td>Status on <?php print_custom_field('lasttest'); ?></td>
