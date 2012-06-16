@@ -122,7 +122,7 @@ get_header( );
 		
 		if ( have_posts() ) : ?>
 		
-		<section id="tools" class="carousel">
+		<section id="tools" class="shadowbox carousel">
 		<div class="carousel-inner">
 		
 		

@@ -38,6 +38,18 @@ body:before, .shadow-bottom
 	        box-shadow:  5px 3px 12px #555;
 }
 
+.shadowbox  
+{  
+    position: relative;  
+
+  padding: 2em 1.5em;
+  margin: 40px auto;
+    background-color: #fff;  
+    -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.2), inset 0 0 50px rgba(0, 0, 0, 0.1);  
+    -moz-box-shadow: 0 0 4px rgba(0, 0, 0, 0.2), inset 0 0 50px rgba(0, 0, 0, 0.1);  
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2), inset 0 0 50px rgba(0, 0, 0, 0.1);  
+}  
+/*
 .shadowbox
 {
   position: relative;
@@ -49,6 +61,7 @@ body:before, .shadow-bottom
   line-height: 1.5;
   margin: 60px auto;
 }
+
 
 .shadowbox:before, .shadowbox:after
 {
@@ -80,4 +93,4 @@ body:before, .shadow-bottom
   transform: rotate(3deg);
   right: 10px;
   left: auto;
-}
+}*/

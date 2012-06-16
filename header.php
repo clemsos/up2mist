@@ -47,7 +47,7 @@
 	</head>
 	<body <?php body_class( );?>>
 		<?php up2mist_before_page( );?>
-		<div id="page" class="container hfeed site">
+		<div id="page" class="rounded-corners container hfeed site">
 			<?php up2mist_before_header( );?>
 			<header id="masthead" class="site-header" role="banner">
 			<a class="branding" href="<?php echo home_url( );?>/"> <?php bloginfo( 'name' );?></a>

@@ -51,7 +51,9 @@
 			<p class="copy">
 				<small> <?php bloginfo( 'name' );?> Theme designed by <a href="http://clementrenaud.com">Clément Renaud</a> - Released under <a href="http://sharism.org">Sharing Agreement</a> - <?php echo date( 'Y' );?></small>
 				</p>
+
 			</div><!-- #page .hfeed .site -->
+
 			<?php wp_footer( );?>
 
 </body>
