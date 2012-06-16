@@ -136,7 +136,7 @@ function up2mist_widgets_init() {
 	
 	register_sidebar( array(
 		'name' => __( 'Footer Left', 'up2mist' ),
-		'id' => 'footer-1',
+		'id' => 'footer-left',
 		'before_widget' => '	<aside id="%1$s" class="%2$s">
 					<ul class="nav nav-list">',
 		'after_widget' => "	</ul>
@@ -147,7 +147,7 @@ function up2mist_widgets_init() {
 	
 	register_sidebar( array(
 		'name' => __( 'Footer Center', 'up2mist' ),
-		'id' => 'footer-2',
+		'id' => 'footer-center',
 		'before_widget' => '	<aside id="%1$s" class="%2$s">
 					<ul class="nav nav-list">',
 		'after_widget' => "	</ul>
@@ -156,6 +156,18 @@ function up2mist_widgets_init() {
 		'after_title' => '</li><li class="divider"></li></ul>'
 	) );
 
+
+	register_sidebar( array(
+		'name' => __( 'Home (Curated)', 'up2mist' ),
+		'id' => 'footer-2',
+		'before_widget' => '	<aside id="%1$s" class="%2$s">
+					<ul class="nav nav-list">',
+		'after_widget' => "	</ul>
+					</aside>",
+		'before_title' => '<li class="nav-header">',
+		'after_title' => '</li><li class="divider"></li></ul>'
+	) );
+	
 }
 
 add_action( 'widgets_init', 'up2mist_widgets_init' );

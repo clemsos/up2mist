@@ -236,7 +236,11 @@ get_header( );
 			<header class="page-header entry-header">
 			<h6>Curated</h6>
 			</header>
-			<small>Here can go some updates coming from 3rd part, feeds, streams, users, etc.</small>
+			<?php if ( ! dynamic_sidebar( 'home-curated' ) ) :?>
+							<?php if ( current_user_can( 'edit_posts' ) ) :?>
+							<?php printf( __( 'Please select some widgets for "Home (Curated)"<br /> <a href="%1$s">Get started here</a>.', 'up2mist' ), admin_url( 'widgets.php' ) );?>
+							<?php endif; // end sidebar top?>
+						<?php endif; // end sidebar top?>
 		</section>
 
 		</section>
