@@ -167,11 +167,11 @@ line-height:2em
 .branding-sidebar {
 text-align: center;
 font-size: 18pt;
-height: 150px;
+height: 165px;
 }
 
 .branding-sidebar a {
-height: 120px;
+height: 150px;
 width: 200px;
 background: url("img/logo_color.png") no-repeat scroll 0 top transparent;
 position: absolute;
