@@ -19,6 +19,7 @@ if ( ! isset( $content_width ) )
 
 add_action( 'after_setup_theme', 'up2mist_setup' );
 
+
 function up2mist_setup() {
 
 	/* Load up2mist template files */
@@ -458,5 +459,35 @@ function custom_excerpt_length( $length ) {
 }
 //add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
 
+
+
+
+/*  Create excerpts from any text */
+
+function excerpt($text, $limit) {
+  $excerpt = explode(' ', $text, $limit);
+  if (count($excerpt)>=$limit) {
+    array_pop($excerpt);
+    $excerpt = implode(" ",$excerpt).'...';
+  } else {
+    $excerpt = implode(" ",$excerpt);
+  }	
+  $excerpt = preg_replace('`\[[^\]]*\]`','',$excerpt);
+  return $excerpt;
+}
+ 
+function content($limit) {
+  $content = explode(' ', get_the_content(), $limit);
+  if (count($content)>=$limit) {
+    array_pop($content);
+    $content = implode(" ",$content).'...';
+  } else {
+    $content = implode(" ",$content);
+  }	
+  $content = preg_replace('/\[.+\]/','', $content);
+  $content = apply_filters('the_content', $content); 
+  $content = str_replace(']]>', ']]&gt;', $content);
+  return $content;
+}
 
 ?>

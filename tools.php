@@ -21,13 +21,16 @@ get_header( );
 	?>
 	
 	
-	<div class="row">
-		<div class="page-header">
+	<article class='toolrow'>
+	<div class="page-header">
 			<a href='<?php the_permalink() ?>'>
 			<h1><?php the_title(); ?>
 				<small><?php print_custom_field('headline'); ?></small>
 			</h1>
-		</div>
+	</div>
+		
+	<div class="row">
+
 
 		<div class="span3">
 			<a href="<?php the_permalink() ?>" class="thumbnail">
@@ -75,9 +78,17 @@ get_header( );
 		
 		</div>
 		<div class="span5">
-		<?php print_custom_field('description'); ?><br />
+		<?php
+		
+		 $my_text = get_custom_field('description');
+		 $my_excerpt =  excerpt($my_text,100) ;
+		 echo $my_excerpt;
+		 
+		 ?>
+		 
 		</div>
 	</div>
+	</article>
 
 	<?php endwhile;?>
 
