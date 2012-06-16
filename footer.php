@@ -18,16 +18,22 @@
 				<header class="page-header entry-header">
 				<h3>About</h3>
 				</header>
-				<p>
-				Visual.ly wants to make it simple for designers to find interesting, well-paying, and satisfying work in the field of data visualization. So we're considering launching a global marketplace (as an extension of our existing community) where you'll be able to display your work, get feedback, and get connected to brands, agencies, and companies looking for infographics of all kinds.
-				</p>
+				<?php if ( ! dynamic_sidebar( 'footer-left' ) ) :?>
+							<?php if ( current_user_can( 'edit_posts' ) ) :?>
+							<?php printf( __( 'Please select some widgets for "Footer Left" <a href="%1$s">Get started here</a>.', 'up2mist' ), admin_url( 'widgets.php' ) );?>
+							<?php endif; // end sidebar top?>
+						<?php endif; // end sidebar top?>
 				</div>
 				
 				<div class="span4 well box">
 					<header class="page-header entry-header">
 						<h3>Find us online</h3>
 					</header>
-					<?php up2mist_footer_inside( );?>
+					<?php if ( ! dynamic_sidebar( 'footer-center' ) ) :?>
+							<?php if ( current_user_can( 'edit_posts' ) ) :?>
+							<?php printf( __( 'Please select some widgets for "Footer Left" <a href="%1$s">Get started here</a>.', 'up2mist' ), admin_url( 'widgets.php' ) );?>
+							<?php endif; // end sidebar top?>
+						<?php endif; // end sidebar top?>
 				</div><!-- .site-info -->
 				
 				<div class="span4 well box">
