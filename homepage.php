@@ -154,8 +154,10 @@ get_header( );
 				  	echo '<img src="http://placehold.it/350x350" />';
 				  }
 				  ?>
-				  <h3><?php the_title(); ?></h3>
 
+				</a>
+				<a href="<?php the_permalink(); ?>">
+				        <h3><?php the_title(); ?></h3>
 				</a>
 				
 			
