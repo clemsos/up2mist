@@ -253,7 +253,7 @@ font-size:0.7em
 
 #toolstrip {  background-color: #3658A4;  height:200px; left:-100%; padding:0 100%; position:relative; width:500%; z-index:-1; margin: 15px 0 }
 
-#tools { position:relative; top:-215px; margin: 30px 0 -200px 0; overflow:hidden}
+#tools { position:relative; top:-220px; margin: 30px 0 -200px 0; overflow:hidden}
 #tools .titlebox { padding:0; top: -20px;}
 #tools .titlebox a { position:relative;bottom: -20px; }
 

@@ -169,11 +169,7 @@ get_header( );
 		<div id="toolstrip"></div>
 		<section id="tools" class="carousel">
 		
-		<header>
-		<div class="">
-		        <a href="<?php bloginfo('url')/tools ?> ">Tools <small>  Browse collection</small></a>
-		</div>
-		</header>
+		
 		<div class="carousel-inner">
 		
 		
