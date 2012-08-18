@@ -14,6 +14,7 @@ get_header( );
 		<div id="content" role="main">
 		
 		
+		<div id="topgroup" class="row">
 		
 		<?php
 		// display latest report
@@ -28,25 +29,28 @@ get_header( );
 		
 		if ( have_posts() ) : 
 		?>
-		<section id="latest-report" class="alert alert-block alert-info">
-		<a class="close" data-dismiss="alert">×</a>
+		<section id="latest-report" class="span2">
+		
 		<?php while ( have_posts() ) : the_post(); 
 		?>
-		<article class="row">
-			<div class="span5">
-			
-			<h3> 
-				<strong>Read our last report : </strong>
-				<a href="<?php the_permalink() ?>"><small><?php the_title()?> </small></a>
-			</h3>
-			</div>
+		<article>
+
+			<header class="titlebox">
+			<a href="<?php bloginfo('url') ?>/reports">Reports
+				<small> More</small>
+			</a>
 			<div class="btn-group span2">
+			
+			</header>
+			<h3><a href="<?php the_permalink() ?>"><?php the_title()?></a></h3>
+			<div class="post-content">
+				<?php the_excerpt() ?></div>
+			
+			
 			<a href="<?php the_permalink(); ?>" class="btn btn-primary">Read</a>
-		
-		<?php if ( get_custom_field('reportpdf')): ?>
-		<a href="<?php echo get_custom_field('reportpdf') ?>" class="btn btn-success">Download</a>
-		<?php endif; ?>
-			</div>
+		        <?php if ( get_custom_field('reportpdf')): ?>
+		        <a href="<?php echo get_custom_field('reportpdf') ?>" class="btn btn-success">Download</a>
+		        <?php endif; ?>
 		</article>
 		<?php endwhile; wp_reset_postdata(); ?>
 		</section>
@@ -74,7 +78,7 @@ get_header( );
 		
 		if ( have_posts() ) :
 		?>
-		<section id="featured" class="carousel shadowbox">
+		<section id="featured" class="span6 carousel">
 		<div class="carousel-inner">
 		
 		<?php /* Start the Loop */?>
@@ -82,18 +86,49 @@ get_header( );
 		?>
 		<article class="item <?php if($i==0) echo 'active'?> hero-unit slide">
 			<div class="row">
-				<div class="span3">
+				
 				<?php 
-				if ( get_the_post_thumbnail() ) {
-						echo get_the_post_thumbnail();
+				if ( has_post_thumbnail() ) {
+						echo '<div class="span3">'. get_the_post_thumbnail() .'</div>';
 					} else {
-						echo '<a href="' . get_permalink() .'" class="btn btn-info btn-large">Read the post</a>';
+						echo '<div class="span6">';
 					} 
 				?>	
-				</div>
-				<div class="span5 text">
-				<h2><a href="<?php the_permalink() ; ?>"><?php the_title() ?></a></h2>
+
+				<div class="<?php if( has_post_thumbnail() ) echo span3 ?> text">
+				
+				<header class="page-header entry-header">
+				<h1>
+				<a href="<?php the_permalink( );?>" title="<?php printf( esc_attr__( 'Permalink to %s', 'up2mist' ), the_title_attribute( 'echo=0' ) );?>" rel="bookmark"><?php the_title( );?></a>
+				</h1>
+				
+				<h6 class="post-category"><?php the_category(' / '); ?>
+				<span><em>&bull; </em><span>
+				<span class="post-meta">
+				        <span class="post-author">
+				        <a
+                    href="<?php echo get_author_posts_url(get_the_author_meta('ID')); ?>" title="Posts by <?php the_author(); ?>"><?php the_author(); ?>
+                                        </a>
+                                        </span>
+                                        <em>&bull; </em>
+                                        <span
+                        class="post-date"><?php the_time(__('M j, Y')) ?>
+                                        </span>
+                                </span>
+                                </h6>
+            		        
+			</header>
+				
+				
+				
 				<p><?php the_excerpt() ?></p>
+				
+				<?php 
+				if ( !has_post_thumbnail() ) {
+		        		// echo '<a href="' . get_permalink() .'" class="btn btn-info alert alert-info">Read the post</a>';
+		        		echo '<div class="clear"></div>';
+		        		echo '</div>'; 
+		        	} ?>
 			</div><!--span -->
 			</div><!--row -->
 		</article>
@@ -101,10 +136,12 @@ get_header( );
 		<?php endwhile; wp_reset_postdata(); ?>
 		</div><!--carousel-inner -->
 		<!-- Carousel nav -->
-		  <a class="carousel-control left" href="#featured" data-slide="prev">&lsaquo;</a>
-		  <a class="carousel-control right" href="#featured" data-slide="next">&rsaquo;</a>
+		  <a class="carousel-control left rounded" href="#featured" data-slide="prev">&lsaquo;</a>
+		  <a class="carousel-control right rounded" href="#featured" data-slide="next">&rsaquo;</a>
 		</section>
 		<?php endif; ?>
+		
+		</div>
 
 
 		<?php
@@ -122,7 +159,14 @@ get_header( );
 		
 		if ( have_posts() ) : ?>
 		
-		<section id="tools" class="shadowbox carousel">
+		<div id="toolstrip"></div>
+		<section id="tools" class="carousel">
+		
+		<header>
+		<div class="titlebox">
+		        <a href="<?php bloginfo('url')/tools ?> ">Tools <small>  Browse collection</small></a>
+		</div>
+		</header>
 		<div class="carousel-inner">
 		
 		
@@ -206,22 +250,24 @@ get_header( );
 
 			
 			<article id="post-<?php the_ID( );?>" <?php post_class( $myclass." shawdowbox" ); ?> >
-			<header class="page-header entry-header rounded-corners">
-				<h6 class="post-category"><?php the_category(' / '); ?></h6>
-				<div class="post-meta">by <span class="post-author"><a
+			<header class="page-header entry-header">
+				<h6 class="post-category"><?php the_category(' / '); ?>
+				<div class="post-meta"><span class="post-author"><a
                     href="<?php echo get_author_posts_url(get_the_author_meta('ID')); ?>" title="Posts by <?php the_author(); ?>"><?php the_author(); ?></a></span>
-                                   on <span
-                        class="post-date"><?php the_time(__('M j, Y')) ?></span> <em>&bull; </em><?php comments_popup_link(__('No Comments'), __('1 Comment'), __('% Comments'), '', __('Comments Closed')); ?> <?php edit_post_link( __( 'Edit entry'), '<em>&bull; </em>'); ?>
+                                   <em>&bull; </em><span
+                        class="post-date"><?php the_time(__('M j, Y')) ?></span>
             </div>
-            		<h3>
+            </h6>
+            		<h2>
 				<a href="<?php the_permalink( );?>" title="<?php printf( esc_attr__( 'Permalink to %s', 'up2mist' ), the_title_attribute( 'echo=0' ) );?>" rel="bookmark"><?php the_title( );?></a>
-				</h3>
+			</h2>
 			</header>
 
-			
+			<div class="post-content">
 				<?php the_excerpt()?>
-				<button href="<?php the_permalink() ?>" class="btn btn-primary">Read</button>
-				
+				<button href="<?php the_permalink() ?>" class="btn btn-primary alert alert-info">Read</button>
+				<div class="clear"><div>
+			</div>
 			</article>
 			<?php 
 			$i++;

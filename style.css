@@ -10,8 +10,6 @@
  Tags: bootstrap, responsive
 
  */
- 
-
 
 @import url("css/effects.css");
 
@@ -40,41 +38,26 @@ body {
 font-family:'Asap', Arial, sans-serif,font-weight:400;
 line-height: 1.6em !important;
 color: #666;
+overflow-x:hidden
 }
 
-body {
-
-background: #edf4f2; /* Old browsers */
-background: -moz-linear-gradient(top, #edf4f2 17%, #3658a4 60%, #3658a4 88%, #7db9e8 100%); /* FF3.6+ */
-background: -webkit-gradient(linear, left top, left bottom, color-stop(17%,#edf4f2), color-stop(60%,#3658a4), color-stop(88%,#3658a4), color-stop(100%,#7db9e8)); /* Chrome,Safari4+ */
-background: -webkit-linear-gradient(top, #edf4f2 17%,#3658a4 60%,#3658a4 88%,#7db9e8 100%); /* Chrome10+,Safari5.1+ */
-background: -o-linear-gradient(top, #edf4f2 17%,#3658a4 60%,#3658a4 88%,#7db9e8 100%); /* Opera 11.10+ */
-background: -ms-linear-gradient(top, #edf4f2 17%,#3658a4 60%,#3658a4 88%,#7db9e8 100%); /* IE10+ */
-background: linear-gradient(top, #edf4f2 17%,#3658a4 60%,#3658a4 88%,#7db9e8 100%); /* W3C */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#edf4f2', endColorstr='#7db9e8',GradientType=0 ); /* IE6-9 */
-
+h1,h2,h3,h4,h5,h6 {
+font-family:'Yanone Kaffeesatz', Arial, sans-serif, font-weight:300;
 }
+
+h6 { font-size:13px}
 
 #page {
 background: url(img/homebg.gif) repeat;
 padding : 0 15px 10px 15px;
 }
 
-
-#featured { }
-
 #content {
 background:transparent;
 }
 
-
-h1,h2,h3,h4,h5,h6 {
-font-family:'Signika Negative', Arial, sans-serif, font-weight:300;
-}
-
 body.navbar-fixed {
-	padding-top: 60px;
-	
+padding-top: 60px;
 }
 
 #masthead .brand {
@@ -93,26 +76,26 @@ overflow:visible;
 text-indent: -9000px;
 }
 
-
 .clear {
 clear:both
 }
+
+
+
 
 #about-box {
 color: #e5e5e5
 }
 
-/* Headings */
+#main-sidebar.well {
+background-color:#f5f5f5
+}
 
-/* Text elements */
 
-/* Links */
-a {
+.page-header {
+padding:0
 }
-a:visited {
-}
-a:hover, a:focus, a:active {
-}
+
 /* Alignment */
 .alignleft {
 	display: inline;
@@ -135,8 +118,7 @@ a:hover, a:focus, a:active {
 	clip: rect(1px, 1px, 1px, 1px);
 	position: absolute !important;
 }
-/* =Menu
- ----------------------------------------------- */
+
 
 /* Small menu */
 .menu-toggle {
@@ -146,19 +128,14 @@ a:hover, a:focus, a:active {
 }
 
 
-/* sidebar */
+/* SIDEBAR
+------------------------------------- */
 
-#main-sidebar {
-background: #ffffff; /* Old browsers */
-background: -moz-linear-gradient(top, #ffffff 0%, #f1f1f1 46%, #e1e1e1 93%, #f6f6f6 100%); /* FF3.6+ */
-background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(46%,#f1f1f1), color-stop(93%,#e1e1e1), color-stop(100%,#f6f6f6)); /* Chrome,Safari4+ */
-background: -webkit-linear-gradient(top, #ffffff 0%,#f1f1f1 46%,#e1e1e1 93%,#f6f6f6 100%); /* Chrome10+,Safari5.1+ */
-background: -o-linear-gradient(top, #ffffff 0%,#f1f1f1 46%,#e1e1e1 93%,#f6f6f6 100%); /* Opera 11.10+ */
-background: -ms-linear-gradient(top, #ffffff 0%,#f1f1f1 46%,#e1e1e1 93%,#f6f6f6 100%); /* IE10+ */
-background: linear-gradient(top, #ffffff 0%,#f1f1f1 46%,#e1e1e1 93%,#f6f6f6 100%); /* W3C */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f6f6f6',GradientType=0 ); /* IE6-9 */
+.nav-header {
+margin-bottom:12px;
+background-color: #3658A4;
+color:white;
 }
-
 
 #secondary li{
 line-height:2em
@@ -188,66 +165,95 @@ background:#fff;
 div.navbar-fixed-top .navbar-inner a {
 color:#000;
 }
-/* =Homepage
- ----------------------------------------------- */
-.home .hero-unit { background-color:#fff; padding:0px}
-.home .hero-unit .text { padding:10px }
-.home .hero-unit p {
-line-height: 1.3em; 
-text-align:justify; 
-font-size:1em
+
+/* THE POST
+----------------------------- */
+
+.post-meta, .post-meta a  {
+color:#ccc;
+line-height:0.8em;
 }
-.home .hero-unit .btn-info{
-top: 120px;
-position: relative;
-text-align: center;
-left: 70px;
+.post-meta {
+padding-bottom:12px
 }
 
+/* HOMEPAGE
+ ----------------------------------------------- */
+.home .hero-unit { background-color:#fff; padding:0px}
+.home .hero-unit p { line-height: 1.3em;  text-align:justify;  font-size:1em }
 .carousel-control {
-	background-color: transparent;
+	background-color: #3658A4;
 	top: 0;
 	-webkit-border-radius : 0; 
 	border-radius:0px;
 	-moz-border-radius: 0;
-	border:none;
 	margin:0;
+	border:none;
 	font-size:2em;
 	width:25px;
-	color:#ccc
+	height:35px;
+	color:#fff
 }
 
-.carousel-control:hover {
-color:#000
-}
-
+.carousel-control:hover { color:#ccc}
 .carousel-control.right { right:0px; bottom:0px}
 .carousel-control.left { left:0px}
 
-#featured { background-color:#edf4f2;}
 #featured, #main-sidebar { margin-top:0px }
+
+#topgroup {padding:30px 0 0 30px;}
+
+#featured { 
+background-color:#edf4f2;
+float:left
+}
 #featured img { max-height:100% }
-#featured .carousel-control {height: 100%; width:17px}
-#featured .item {
-height:265px
+#featured .item { height:265px }
+#featured .btn-info{ float:right ; margin:0 35px 0 0}
+#featured .carousel-control { margin:227px 0 0 0; color: #3658A4; background-color:transparent}
+#featured .item {margin:0}
+#featured h1 { font-size:50px}
+
+#latest-report {
+background-color:white;
+float:right;
+margin:0;
+height:265px;
+width:240px
 }
 
-#tools .carousel-control {
-height: 180px; 
-width:17px
+.titlebox { 
+padding: 0 27px; 
+margin-bottom:12px; background-color: #3658A4; color:white; 
+font-family: Yanone Kaffeesatz, Arial, sans;
+font-size: 20px;
+padding: 5px 0 5px 30px;
+text-transform: uppercase;
+position: relative;
 
 }
+.titlebox, .titlebox small, .titlebox a { 
+color:whiteSmoke 
+}
 
-#tools .carousel-inner {padding-left:50px}
+.titlebox small {
+font-size:0.7em
+}
+
+
+#latest-report .btn-group { float:right; }
+
+#news { height :800px }
+
+#toolstrip {  background-color: #3658A4;  height:200px; left:-100%; padding:0 100%; position:relative; width:500%; z-index:-1; margin: 15px 0 }
+
+#tools { position:relative; top:-215px; margin: 30px 0 -200px 0; overflow:hidden}
+#tools .titlebox {height:25px; display:none}
+#tools .carousel-inner { padding-left:50px }
+#tools .carousel-control { height:100% }
 #tools .tool-title { position:relative; top:20px}
-#tools .item {
-height:180px
-}
-
-#tools article {
-width:170px;
-height:170px;
-}
+#tools .item { height:180px }
+#tools article { width:170px; height:170px;}
 
 a.tool {
 height: 170px;
@@ -260,16 +266,7 @@ text-align:center;
 vertical-align:middle
 }
 
-
-#tools h3 {
-text-align:center;
-color:#282828;
-display:block;
-height:25px;
-position:relative; 
-top:-25px;
-width:100%;
-}
+#tools h3 { text-align:center; color:#282828; display:block; height:25px; position:relative;  top:-25px; width:100%; }
 
 #tools h3:hover {
 color: white;
@@ -277,16 +274,29 @@ text-decoration: none;
 opacity: 0.5;
 }
 
-
-#latest-report .btn-group {
-float:right
+article h3 a {
+color:black
 }
-
-#news { height :800px }
 
 #recent article {
-padding:8px
+border-bottom:1px solid #ccc;
+padding: 0 30px 0 30px;
 }
+.post-content {
+    color: #282828;
+    font: 12px/1.5 Helvetica, Arial, sans-serif;
+}
+
+.post-content  button {
+    color: #3658A4;
+    float:right
+}
+.post-content  button:hover {
+    background-color: #3658A4;
+    color:whiteSmoke;
+
+}
+
 
 
 .toolrow {
@@ -294,7 +304,16 @@ border-bottom:1px solid #ccc;
 padding-bottom:15px
 }
 
-footer .textwidget {
+
+
+footer .textwidget, footer h3 {
+color:white
+}
+
+
+
+/* REPORTS PAGE --------------------- */
+.hero-unit.report {
 color:white
 }
 
