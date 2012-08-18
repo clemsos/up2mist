@@ -714,7 +714,7 @@ a.label:hover,a.badge:hover{color:#ffffff;text-decoration:none;cursor:pointer;}
 .hide{display:none;}
 .show{display:block;}
 .invisible{visibility:hidden;}
-.navbar .brand,legend{font-family:'Lobster',cursive;}
+.navbar .brand,legend{font-family:'Asap',Arial, sans-serif; text-transform:capitalize; font-weight:bold}
 h6{color:rgba(255, 255, 255, 0.9);}
 h1 small,h2 small,h3 small,h4 small,h5 small,h6 small{font-family:'Asap',Verdana,sans-serif;color:rgba(255, 255, 255, 0.9);}
 .muted{color:rgba(255, 255, 255, 0.5);}
