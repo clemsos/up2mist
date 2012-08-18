@@ -180,7 +180,7 @@ padding-bottom:12px
 /* HOMEPAGE
  ----------------------------------------------- */
 .home .hero-unit { background-color:#fff; padding:0px}
-.home .hero-unit p { line-height: 1.3em;  text-align:justify;  font-size:1em }
+.home .hero-unit p { line-height: 1.3em;  text-align:justify;  font-size:0.8em }
 .carousel-control {
 	background-color: #3658A4;
 	top: 0;
@@ -212,7 +212,7 @@ float:left
 #featured .btn-info{ float:right ; margin:0 35px 0 0}
 #featured .carousel-control { margin:227px 0 0 0; color: #3658A4; background-color:transparent}
 #featured .item {margin:0}
-#featured h1 { font-size:50px}
+#featured h1 { font-size: 40px;line-height: 0.8em;}
 
 #latest-report {
 background-color:white;
