@@ -91,7 +91,7 @@ get_header( );
 				if ( has_post_thumbnail() ) {
 						echo '<div class="span3">'. get_the_post_thumbnail() .'</div>';
 					} else {
-						echo '<div class="span6">';
+						echo '<div class="span6 hasthumb">';
 					} 
 				?>	
 
@@ -163,7 +163,7 @@ get_header( );
 		<section id="tools" class="carousel">
 		
 		<header>
-		<div class="titlebox">
+		<div class="">
 		        <a href="<?php bloginfo('url')/tools ?> ">Tools <small>  Browse collection</small></a>
 		</div>
 		</header>
@@ -200,9 +200,13 @@ get_header( );
 				  ?>
 
 				</a>
-				<a href="<?php the_permalink(); ?>">
-				        <h3><?php the_title(); ?></h3>
-				</a>
+				<div class="titlebox">
+				        <h3>
+				                <a href="<?php the_permalink(); ?>">
+				                         <?php the_title(); ?>
+				                </a>
+				        </h3>
+				</div>
 				
 			
 

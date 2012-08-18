@@ -181,6 +181,8 @@ padding-bottom:12px
  ----------------------------------------------- */
 .home .hero-unit { background-color:#fff; padding:0px}
 .home .hero-unit p { line-height: 1.3em;  text-align:justify;  font-size:0.8em }
+.home .hero-unit .hasthumb p { font-size:1em }
+
 .carousel-control {
 	background-color: #3658A4;
 	top: 0;
@@ -222,6 +224,10 @@ height:265px;
 width:240px
 }
 
+#latest-report .post-content {
+color:#666
+}
+
 .titlebox { 
 padding: 0 27px; 
 margin-bottom:12px; background-color: #3658A4; color:white; 
@@ -248,7 +254,9 @@ font-size:0.7em
 #toolstrip {  background-color: #3658A4;  height:200px; left:-100%; padding:0 100%; position:relative; width:500%; z-index:-1; margin: 15px 0 }
 
 #tools { position:relative; top:-215px; margin: 30px 0 -200px 0; overflow:hidden}
-#tools .titlebox {height:25px; display:none}
+#tools .titlebox { padding:0; top: -20px;}
+#tools .titlebox a { position:relative;bottom: -20px; }
+
 #tools .carousel-inner { padding-left:50px }
 #tools .carousel-control { height:100% }
 #tools .tool-title { position:relative; top:20px}
