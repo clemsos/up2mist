@@ -119,13 +119,14 @@ get_header( );
             		        
 			</header>
 				<?php 
-				if ( !has_post_thumbnail() ) {
-		        		 if (function_exists('smart_excerpt'))  {
+				if (function_exists('smart_excerpt'))  {
+				        if ( !has_post_thumbnail() ) {
 		        		        echo '<p>';
-		        		        smart_excerpt(get_the_excerpt(), 75); 
+		        		        smart_excerpt( get_the_excerpt(), 75); 
 		        		        echo '</p>';
 		        		        echo '</div>'; 
-		        		 } else {
+		        		 } 
+		        		 else {
 		        		        echo '<p>';
 		        		        smart_excerpt(get_the_excerpt(), 25); 
 		        		        echo '</p>';
