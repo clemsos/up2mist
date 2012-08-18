@@ -180,7 +180,7 @@ padding-bottom:12px
 /* HOMEPAGE
  ----------------------------------------------- */
 .home .hero-unit { background-color:#fff; padding:0px}
-.home .hero-unit p { line-height: 1.3em;  text-align:justify;  font-size:0.8em }
+.home .hero-unit p { line-height: 1.3em;  text-align:justify;  font-size:1em }
 
 
 .carousel-control {
