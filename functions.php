@@ -494,6 +494,11 @@ function custom_excerpt_length( $length ) {
 //add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
 
 
+function smart_excerpt($string, $limit) {
+    $words = explode(" ",$string);
+    if ( count($words) >= $limit) $dots = '...';
+    echo implode(" ",array_splice($words,0,$limit)).$dots;
+}
 
 
 /*  Create excerpts from any text */

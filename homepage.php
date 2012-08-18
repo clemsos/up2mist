@@ -118,16 +118,22 @@ get_header( );
                                 </h6>
             		        
 			</header>
-				
-				
-				
-				<p><?php the_excerpt() ?></p>
-				
 				<?php 
 				if ( !has_post_thumbnail() ) {
+		        		 if (function_exists('smart_excerpt'))  {
+		        		        echo '<p>';
+		        		        smart_excerpt(get_the_excerpt(), 75); 
+		        		        echo '</p>';
+		        		        echo '</div>'; 
+		        		 } else {
+		        		        echo '<p>';
+		        		        smart_excerpt(get_the_excerpt(), 25); 
+		        		        echo '</p>';
+		        		 }
+		        		 
 		        		// echo '<a href="' . get_permalink() .'" class="btn btn-info alert alert-info">Read the post</a>';
-		        		echo '<div class="clear"></div>';
-		        		echo '</div>'; 
+		        		//echo '<div class="clear"></div>';
+		       
 		        	} ?>
 			</div><!--span -->
 			</div><!--row -->
